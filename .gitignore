@@ -1,0 +1,16 @@
+﻿# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data (can be large, shouldn't live in git)
+data/*.csv
+data/*.shp
+data/*.tif
+
+# Secrets
+.env
+
+# OS
+.DS_Store
