@@ -32,8 +32,8 @@ Tunisia has a documented wildfire problem, especially in the northwest, but litt
 - [x] Set up project and Python environment
 - [x] Pull near-real-time VIIRS fire data for Tunisia (NASA FIRMS API)
 - [x] Plot detections on an interactive map (`outputs/tunisia_fires_live.html`)
-- [ ] Combine fetch and plot into a single pipeline
-- [ ] Add governorate boundaries to the map
+- [x] Combine fetch and plot into a single pipeline
+- [x] Add governorate boundaries to the map
 
 **Part 2: Fire risk mapping and burn area analysis**
 - [ ] Download historical FIRMS data for Tunisia (2012 to 2025)
