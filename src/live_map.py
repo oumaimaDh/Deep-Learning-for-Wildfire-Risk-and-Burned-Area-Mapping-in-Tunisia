@@ -43,6 +43,17 @@ def build_map(df):
         attr="Esri",
     )
 
+    folium.GeoJson(
+        "data/tunisia_governorates.geojson",
+        name="Governorates",
+        style_function=lambda _: {
+            "color": "#444",
+            "weight": 1,
+            "fillOpacity": 0,
+        },
+        tooltip=folium.GeoJsonTooltip(fields=["shapeName"], aliases=["Governorate:"]),
+    ).add_to(m)
+
     for _, row in df.iterrows():
         folium.CircleMarker(
             location=[row["latitude"], row["longitude"]],
