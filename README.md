@@ -1,28 +1,53 @@
 # Deep Learning for Wildfire Risk and Burned-Area Mapping in Tunisia
 
-An independent research project analyzing 20+ years of NASA Earth observation data to characterize wildfire patterns in Tunisia, model fire risk, and automatically map burned areas with deep learning.
+An independent research project analyzing NASA Earth observation data to characterize wildfire patterns in Tunisia, model fire risk, and automatically map burned areas with deep learning.
 
-**Status:** In progress. Live fire map done; historical data collection under way. 🚧
+**Status:** In progress. Live fire map and historical VIIRS analysis are done; MODIS data, weather drivers and modeling come next. 🚧
 
 ## Goals
 
-1. Characterize wildfire patterns in Tunisia over two decades (NASA FIRMS, MODIS and VIIRS)
+1. Characterize wildfire patterns in Tunisia over two decades (NASA FIRMS: VIIRS from 2012, MODIS from 2000)
 2. Identify the climatic and vegetation drivers of fire risk (MERRA-2, NDVI)
 3. Build a Random Forest baseline for fire risk
 4. Train a PyTorch U-Net for burned-area segmentation, using MODIS MCD64A1 as reference labels, and compare it to the baseline (target Dice > 0.80)
 5. Produce burned-area maps and a technical report
 
-Focus area: the Kroumirie-Mogods region in the northwest, which is Tunisia's most fire-affected zone.
+Focus area: the Kroumirie-Mogods region in the northwest, a historically fire-affected zone.
 
 ## Why
 
 Tunisia has little public research on wildfire patterns, while NASA provides free, open data going back more than 20 years.
 
+## Results so far (preliminary)
+
+VIIRS S-NPP (375 m) active-fire detections for Tunisia, January 2012 to November 2026: 57,879 raw detections.
+
+![Vegetation fire detections per year](outputs/fires_per_year.png)
+
+![Seasonality of vegetation fire detections](outputs/fires_per_month.png)
+
+- **Almost half of the raw archive is not wildfire.** 46% of archive detections are flagged as static land sources (gas flares, industrial heat), so cleaning was essential before any analysis.
+- **Fires are strongly seasonal**, concentrated in the summer months with a peak in July and August.
+- **Spatial pattern:** after removing fixed sources, the densest clusters are in western Tunisia near the Algerian border, with elevated density across the northwest. Per-governorate counts and clustering are the next step. Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive heatmap.
+
+## Data cleaning
+
+Applied in `src/analyze_fires.py`:
+
+1. Keep only archive detections classified as presumed vegetation fires (type 0).
+2. Recent near-real-time detections have no type, so those that fall within about 500 m of a known static source are removed.
+3. Drop low-confidence detections.
+4. Remove persistent fixed sources the type flag missed: any ~500 m grid cell active in 6 or more different calendar months, or with 40 or more detections, plus its neighbouring cells. Removed detections are saved for inspection.
+
+Result: 57,879 raw detections reduced to 19,753 cleaned vegetation-fire detections.
+
+The thresholds in step 4 are heuristics, chosen after inspecting the most-repeated cells (`src/check_hotspots.py`), and will be revisited.
+
 ## Data sources
 
 | Source | Used for |
 |---|---|
-| [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/) (MODIS 2000+, VIIRS 2012+) | Active fire detections |
+| [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/) (VIIRS 2012+, MODIS 2000+) | Active fire detections |
 | MODIS MCD64A1 | Monthly burned-area product, used as segmentation labels |
 | MERRA-2 | Meteorological reanalysis (temperature, humidity, wind, rainfall) |
 | [Copernicus Data Space](https://dataspace.copernicus.eu/) (Sentinel-2) | NDVI and before/after imagery |
@@ -37,8 +62,11 @@ Tunisia has little public research on wildfire patterns, while NASA provides fre
 - [x] Single fetch-and-plot pipeline (`src/live_map.py`)
 
 **Phase 2: Historical data and exploration**
-- [x] Request historical VIIRS (2012 to 2025) and MODIS (2000 to 2025) archives
-- [ ] Explore trends: yearly counts, seasonality, confidence filtering
+- [x] Download historical VIIRS archive (2012 to 2026)
+- [x] Clean the data and remove fixed industrial sources
+- [x] Seasonality, yearly trends and density map
+- [ ] Download and clean the MODIS archive (2000 to 2025), requested
+- [ ] Per-governorate statistics
 - [ ] Spatial clustering of persistent hotspots (DBSCAN/HDBSCAN)
 
 **Phase 3: Drivers and baseline model**
@@ -62,9 +90,11 @@ Tunisia has little public research on wildfire patterns, while NASA provides fre
 ├── src/
 │   ├── live_map.py          # Fetches recent VIIRS detections and builds the live map
 │   ├── boundaries.py        # Downloads Tunisia governorate boundaries
-│   └── explore_history.py   # Summary statistics on the historical archive
+│   ├── explore_history.py   # Merges the downloaded VIIRS CSVs and prints summary statistics
+│   ├── analyze_fires.py     # Cleans the data, makes the charts and the density map
+│   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
 ├── data/                    # Downloaded data (not tracked by git)
-├── outputs/                 # Generated maps
+├── outputs/                 # Generated charts and maps
 ├── notebooks/               # Exploration notebooks
 ├── requirements.txt
 └── README.md
@@ -89,16 +119,23 @@ Create a `.env` file in the project root (it is gitignored):
 FIRMS_MAP_KEY=your_key_here
 ```
 
-Then run:
+Live map:
 
 ```powershell
 python src/boundaries.py    # one-time: downloads governorate boundaries
-python src/live_map.py      # saves data/tunisia_fires_latest.csv and outputs/tunisia_fires_live.html
+python src/live_map.py      # saves outputs/tunisia_fires_live.html
+```
+
+Historical analysis: request Tunisia's VIIRS archive from the [FIRMS download page](https://firms.modaps.eosdis.nasa.gov/download/), unzip the CSV files into `data/viirs_raw/`, then run:
+
+```powershell
+python src/explore_history.py    # merge the CSVs, print summary statistics
+python src/analyze_fires.py      # clean the data, save charts and the density map to outputs/
 ```
 
 Notes:
-- The near-real-time endpoint only returns the last 1 to 5 days, and the map can be empty outside the summer fire season.
-- Historical archives are downloaded from the [FIRMS download page](https://firms.modaps.eosdis.nasa.gov/download/) and placed in `data/` (gitignored).
+- The near-real-time endpoint only returns the last 1 to 5 days, and the live map can be empty outside the summer fire season.
+- Data files are gitignored, so each user downloads their own copy.
 
 ## Author
 
