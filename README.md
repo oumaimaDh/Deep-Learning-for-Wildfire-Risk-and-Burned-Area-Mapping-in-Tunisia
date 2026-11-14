@@ -29,9 +29,13 @@ Active-fire detections for Tunisia from two NASA sensors: VIIRS S-NPP (375 m, Ja
 - **Almost half of the raw VIIRS archive is not wildfire.** 46% of archive detections are flagged as static land sources (gas flares, industrial heat), against 8% for MODIS, so cleaning was essential.
 - **The northwest is the fire hot spot.** Jendouba, Béja and Bizerte, the governorates that contain the Kroumirie-Mogods region, cover roughly 7% of Tunisia's area but hold 41% of cleaned VIIRS detections and 51% of MODIS detections. They rank first to third in fire density (VIIRS detections per 100 km²: Bizerte 93, Béja 68, Jendouba 64). Kasserine and El Kef have more detections than Jendouba in absolute terms, but they are larger and less dense.
 - **Caveat for the south and east.** VIIRS records 8 to 19 times more detections than MODIS in Sfax, Gabès, Tataouine, Kébili and Gafsa, against 2 to 4 times in the north, so VIIRS counts there probably still include industrial or very small sources. A few small governorates around Tunis also show high density and need checking for non-wildfire burning. The northern results hold in both sensors.
+- **Fires keep returning to the same places.** DBSCAN clustering of the cleaned VIIRS detections (1 km distance, at least 10 detections) finds 255 clusters. 128 are persistent, meaning active in 5 or more different years. 102 of those are also seen by MODIS (3 or more MODIS detections nearby) and hold 73% of all clustered detections. Bizerte (41 clusters), Béja (25) and Jendouba (8) host 74 of these 102 (73%). The most persistent clusters in Bizerte and Béja were active in 14 to 15 of the 15 years from 2012 to 2026.
+- **Caveats on the clusters.** Persistence cannot tell forest fires from agricultural burning of the same fields, so land-cover data is needed to separate them. 26 persistent clusters (412 detections) are seen by VIIRS only and are set aside: they are small and lie mostly around Greater Tunis, the east coast and the south, so they are probably not forest fires. The settings were chosen by hand, and the largest cluster (El Kef, 31 km across) probably merges several fire areas, so it will be refined (smaller distance or HDBSCAN).
 - Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive VIIRS heatmap. Its brightest clusters, in the west near the Algerian border, are still to be investigated.
 
 ![Detections by governorate](outputs/governorate_stats.png)
+
+![Persistent fire hotspots](outputs/hotspots_map.png)
 
 Per-sensor charts: [VIIRS per year](outputs/fires_per_year.png), [VIIRS seasonality](outputs/fires_per_month.png), [MODIS per year](outputs/modis_fires_per_year.png), [MODIS seasonality](outputs/modis_fires_per_month.png).
 
@@ -74,7 +78,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 - [x] Seasonality, yearly trends and density map
 - [x] Cross-check VIIRS against MODIS
 - [x] Per-governorate statistics
-- [ ] Spatial clustering of persistent hotspots (DBSCAN/HDBSCAN)
+- [x] Spatial clustering of persistent hotspots (DBSCAN; HDBSCAN refinement possible)
 
 **Phase 3: Drivers and baseline model**
 - [ ] Download MERRA-2 weather variables and compute NDVI
@@ -103,6 +107,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 │   ├── analyze_modis.py     # Cleans the MODIS data and makes charts
 │   ├── compare_sensors.py   # Compares VIIRS and MODIS year by year and by season
 │   ├── governorate_stats.py # Counts detections per governorate and fire density
+│   ├── find_hotspots.py     # Clusters detections (DBSCAN) to find persistent hotspots
 │   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
 ├── data/                    # Downloaded data (not tracked by git)
 ├── outputs/                 # Generated charts and maps
@@ -146,6 +151,7 @@ python src/explore_modis.py      # merge the MODIS CSVs, print summary statistic
 python src/analyze_modis.py      # clean MODIS, save charts to outputs/
 python src/compare_sensors.py    # compare the two sensors
 python src/governorate_stats.py  # detections and fire density per governorate
+python src/find_hotspots.py      # persistent hotspot clusters (needs scikit-learn)
 ```
 
 Notes:

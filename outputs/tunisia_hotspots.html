@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_17b12cb1324e593c7304a89a2e70afb5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_17b12cb1324e593c7304a89a2e70afb5" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_17b12cb1324e593c7304a89a2e70afb5 = L.map(
+                "map_17b12cb1324e593c7304a89a2e70afb5",
+                {
+                    center: [34.0, 9.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e67603d2ae5ed6fa0f4fce516698d803 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e67603d2ae5ed6fa0f4fce516698d803.addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+            var circle_marker_91f209c285166f2f53d9633da4607ee2 = L.circleMarker(
+                [37.0649, 9.6395],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.674794331177345, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_a310eb82cf81881a83b4334c25d021b4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0c7e5af87ce350cda0d4cdc280926c2a = $(`<div id="html_0c7e5af87ce350cda0d4cdc280926c2a" style="width: 100.0%; height: 100.0%;">Bizerte<br>187 detections<br>active in 15 years (2012-2026)<br>peak month: 7<br>MODIS detections nearby: 129</div>`)[0];
+                popup_a310eb82cf81881a83b4334c25d021b4.setContent(html_0c7e5af87ce350cda0d4cdc280926c2a);
+            
+        
+
+        circle_marker_91f209c285166f2f53d9633da4607ee2.bindPopup(popup_a310eb82cf81881a83b4334c25d021b4)
+        ;
+
+        
+    
+    
+            var circle_marker_1ddbd0525a0ccc21a1c795a05674d871 = L.circleMarker(
+                [36.7675, 9.2621],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.04987562112089, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_265105639c67ae7345e78907848a00f0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_69779949018f54f600552a16af1151a6 = $(`<div id="html_69779949018f54f600552a16af1151a6" style="width: 100.0%; height: 100.0%;">Béja<br>101 detections<br>active in 14 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 74</div>`)[0];
+                popup_265105639c67ae7345e78907848a00f0.setContent(html_69779949018f54f600552a16af1151a6);
+            
+        
+
+        circle_marker_1ddbd0525a0ccc21a1c795a05674d871.bindPopup(popup_265105639c67ae7345e78907848a00f0)
+        ;
+
+        
+    
+    
+            var circle_marker_7cf9d82f3e3054ed59b7330517186f2c = L.circleMarker(
+                [36.6852, 9.182],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_080966503faf0f049ad43ff3b8cefeff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b674bb9a919088fad9d2102b6f546e0c = $(`<div id="html_b674bb9a919088fad9d2102b6f546e0c" style="width: 100.0%; height: 100.0%;">Béja<br>100 detections<br>active in 14 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 53</div>`)[0];
+                popup_080966503faf0f049ad43ff3b8cefeff.setContent(html_b674bb9a919088fad9d2102b6f546e0c);
+            
+        
+
+        circle_marker_7cf9d82f3e3054ed59b7330517186f2c.bindPopup(popup_080966503faf0f049ad43ff3b8cefeff)
+        ;
+
+        
+    
+    
+            var circle_marker_87b8d89549b0a285d64d22b42d18cc4c = L.circleMarker(
+                [36.7418, 9.3033],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.1104335791443, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_a8f444f6556d8286f74d61c9e5daac78 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a22dfcc4a2283fd3137edd82ebf419aa = $(`<div id="html_a22dfcc4a2283fd3137edd82ebf419aa" style="width: 100.0%; height: 100.0%;">Béja<br>83 detections<br>active in 14 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 77</div>`)[0];
+                popup_a8f444f6556d8286f74d61c9e5daac78.setContent(html_a22dfcc4a2283fd3137edd82ebf419aa);
+            
+        
+
+        circle_marker_87b8d89549b0a285d64d22b42d18cc4c.bindPopup(popup_a8f444f6556d8286f74d61c9e5daac78)
+        ;
+
+        
+    
+    
+            var circle_marker_46651172a6b6de73ca931e046f5944b5 = L.circleMarker(
+                [36.308, 8.4574],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_1bd974e3a516b146fbedf0b177604954 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_876cfd8fe3abd70a8ffcda8860ac96e9 = $(`<div id="html_876cfd8fe3abd70a8ffcda8860ac96e9" style="width: 100.0%; height: 100.0%;">El Kef<br>1531 detections<br>active in 13 years (2012-2026)<br>peak month: 7<br>MODIS detections nearby: 564</div>`)[0];
+                popup_1bd974e3a516b146fbedf0b177604954.setContent(html_876cfd8fe3abd70a8ffcda8860ac96e9);
+            
+        
+
+        circle_marker_46651172a6b6de73ca931e046f5944b5.bindPopup(popup_1bd974e3a516b146fbedf0b177604954)
+        ;
+
+        
+    
+    
+            var circle_marker_5f339eebdc249ded52176c066c555db8 = L.circleMarker(
+                [37.3038, 9.664],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 19.852299546352718, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_785690b679274b2cd3e5a99a506a687b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_225bd3c8164976e736a82e2bda3c4926 = $(`<div id="html_225bd3c8164976e736a82e2bda3c4926" style="width: 100.0%; height: 100.0%;">Bizerte<br>284 detections<br>active in 13 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 174</div>`)[0];
+                popup_785690b679274b2cd3e5a99a506a687b.setContent(html_225bd3c8164976e736a82e2bda3c4926);
+            
+        
+
+        circle_marker_5f339eebdc249ded52176c066c555db8.bindPopup(popup_785690b679274b2cd3e5a99a506a687b)
+        ;
+
+        
+    
+    
+            var circle_marker_46dab3b25332026310435c1b8c58734b = L.circleMarker(
+                [36.8192, 9.0848],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.916375287812984, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_f807fb4335b0f24dce9f1443d5fdda31 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58091eeff6979cdda1272dc1effae18e = $(`<div id="html_58091eeff6979cdda1272dc1effae18e" style="width: 100.0%; height: 100.0%;">Béja<br>142 detections<br>active in 13 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 77</div>`)[0];
+                popup_f807fb4335b0f24dce9f1443d5fdda31.setContent(html_58091eeff6979cdda1272dc1effae18e);
+            
+        
+
+        circle_marker_46dab3b25332026310435c1b8c58734b.bindPopup(popup_f807fb4335b0f24dce9f1443d5fdda31)
+        ;
+
+        
+    
+    
+            var circle_marker_37e0641b21311b017bcbbb4f8c722197 = L.circleMarker(
+                [36.9479, 9.4202],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.489125293076057, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_25fbb972d353446c2a7e7df6e8da7fff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_810b0d96ebb5be845dba379f46ead554 = $(`<div id="html_810b0d96ebb5be845dba379f46ead554" style="width: 100.0%; height: 100.0%;">Bizerte<br>132 detections<br>active in 13 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 61</div>`)[0];
+                popup_25fbb972d353446c2a7e7df6e8da7fff.setContent(html_810b0d96ebb5be845dba379f46ead554);
+            
+        
+
+        circle_marker_37e0641b21311b017bcbbb4f8c722197.bindPopup(popup_25fbb972d353446c2a7e7df6e8da7fff)
+        ;
+
+        
+    
+    
+            var circle_marker_124065060c19eb862b7fd40dd22759df = L.circleMarker(
+                [37.0901, 9.607],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.348469228349535, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_7f9cd2ecc998eacb507a4789d491a8f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_1a774818bc65329f273882d2e2ad8646 = $(`<div id="html_1a774818bc65329f273882d2e2ad8646" style="width: 100.0%; height: 100.0%;">Bizerte<br>54 detections<br>active in 13 years (2012-2024)<br>peak month: 9<br>MODIS detections nearby: 54</div>`)[0];
+                popup_7f9cd2ecc998eacb507a4789d491a8f9.setContent(html_1a774818bc65329f273882d2e2ad8646);
+            
+        
+
+        circle_marker_124065060c19eb862b7fd40dd22759df.bindPopup(popup_7f9cd2ecc998eacb507a4789d491a8f9)
+        ;
+
+        
+    
+    
+            var circle_marker_f2823fb91c70d1de06cccf84818a14ca = L.circleMarker(
+                [37.2568, 9.5427],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.63014581273465, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_c42f323fd7f8859ba6ac11b3090d2711 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_af0f44b7abba0d5c3a489e316ce9f743 = $(`<div id="html_af0f44b7abba0d5c3a489e316ce9f743" style="width: 100.0%; height: 100.0%;">Bizerte<br>113 detections<br>active in 12 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 171</div>`)[0];
+                popup_c42f323fd7f8859ba6ac11b3090d2711.setContent(html_af0f44b7abba0d5c3a489e316ce9f743);
+            
+        
+
+        circle_marker_f2823fb91c70d1de06cccf84818a14ca.bindPopup(popup_c42f323fd7f8859ba6ac11b3090d2711)
+        ;
+
+        
+    
+    
+            var circle_marker_73fe7575be728ab4665bb65ffba7bbcd = L.circleMarker(
+                [36.8957, 9.4231],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_25117c1cde52980c326ccaae8afa711b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e1bdd45636472d019c779381171c568a = $(`<div id="html_e1bdd45636472d019c779381171c568a" style="width: 100.0%; height: 100.0%;">Bizerte<br>81 detections<br>active in 12 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 61</div>`)[0];
+                popup_25117c1cde52980c326ccaae8afa711b.setContent(html_e1bdd45636472d019c779381171c568a);
+            
+        
+
+        circle_marker_73fe7575be728ab4665bb65ffba7bbcd.bindPopup(popup_25117c1cde52980c326ccaae8afa711b)
+        ;
+
+        
+    
+    
+            var circle_marker_993d8f4d4dcb6ce01b33dc06a4607764 = L.circleMarker(
+                [36.51, 9.1957],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.14142842854285, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_c3114c8997a501e399de25def9d4c435 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7cb8cfb99f02cb3dea9f6d4c13309ff4 = $(`<div id="html_7cb8cfb99f02cb3dea9f6d4c13309ff4" style="width: 100.0%; height: 100.0%;">Béja<br>51 detections<br>active in 12 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 44</div>`)[0];
+                popup_c3114c8997a501e399de25def9d4c435.setContent(html_7cb8cfb99f02cb3dea9f6d4c13309ff4);
+            
+        
+
+        circle_marker_993d8f4d4dcb6ce01b33dc06a4607764.bindPopup(popup_c3114c8997a501e399de25def9d4c435)
+        ;
+
+        
+    
+    
+            var circle_marker_e485510bdfbba9784c90e5fd5f4d9484 = L.circleMarker(
+                [35.8786, 10.5836],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.47213595499958, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_9642a57d01fd1d64898367888a8de658 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6899f36e01cef71633c0b5b9cb8f6b67 = $(`<div id="html_6899f36e01cef71633c0b5b9cb8f6b67" style="width: 100.0%; height: 100.0%;">Sousse<br>20 detections<br>active in 12 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 1</div>`)[0];
+                popup_9642a57d01fd1d64898367888a8de658.setContent(html_6899f36e01cef71633c0b5b9cb8f6b67);
+            
+        
+
+        circle_marker_e485510bdfbba9784c90e5fd5f4d9484.bindPopup(popup_9642a57d01fd1d64898367888a8de658)
+        ;
+
+        
+    
+    
+            var circle_marker_a9bf43ed282bab51a2750d51c6e4995b = L.circleMarker(
+                [36.4218, 9.1496],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.12403840463596, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_0bc3ced2bf1a87fa842bc999c132935d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_86115fa6681853ee8f9efb13e7d60877 = $(`<div id="html_86115fa6681853ee8f9efb13e7d60877" style="width: 100.0%; height: 100.0%;">Béja<br>66 detections<br>active in 11 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 48</div>`)[0];
+                popup_0bc3ced2bf1a87fa842bc999c132935d.setContent(html_86115fa6681853ee8f9efb13e7d60877);
+            
+        
+
+        circle_marker_a9bf43ed282bab51a2750d51c6e4995b.bindPopup(popup_0bc3ced2bf1a87fa842bc999c132935d)
+        ;
+
+        
+    
+    
+            var circle_marker_b9e974d1b11cd9418f5a008977795ee1 = L.circleMarker(
+                [36.7263, 8.8968],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.744562646538029, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_9fd417fa5a6b103712181860fa31ce8b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ac2f6954efff3eed145134c62293549d = $(`<div id="html_ac2f6954efff3eed145134c62293549d" style="width: 100.0%; height: 100.0%;">Jendouba<br>33 detections<br>active in 11 years (2012-2026)<br>peak month: 7<br>MODIS detections nearby: 9</div>`)[0];
+                popup_9fd417fa5a6b103712181860fa31ce8b.setContent(html_ac2f6954efff3eed145134c62293549d);
+            
+        
+
+        circle_marker_b9e974d1b11cd9418f5a008977795ee1.bindPopup(popup_9fd417fa5a6b103712181860fa31ce8b)
+        ;
+
+        
+    
+    
+            var circle_marker_bedc4f73355f258f15a9bdda0e869bdc = L.circleMarker(
+                [36.7939, 9.3123],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_460a8a185017641ba33f527a5def1d54 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_febf3ffd661f65df075e7b7d09587682 = $(`<div id="html_febf3ffd661f65df075e7b7d09587682" style="width: 100.0%; height: 100.0%;">Béja<br>25 detections<br>active in 11 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 15</div>`)[0];
+                popup_460a8a185017641ba33f527a5def1d54.setContent(html_febf3ffd661f65df075e7b7d09587682);
+            
+        
+
+        circle_marker_bedc4f73355f258f15a9bdda0e869bdc.bindPopup(popup_460a8a185017641ba33f527a5def1d54)
+        ;
+
+        
+    
+    
+            var circle_marker_e2fc3c2111c0cf7cb73da8c586567d54 = L.circleMarker(
+                [37.2304, 9.689],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.898979485566356, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_ce0de7eb5f857b27366450495611bced = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b811d1c64bd94f9b7fcad699b1d6d80b = $(`<div id="html_b811d1c64bd94f9b7fcad699b1d6d80b" style="width: 100.0%; height: 100.0%;">Bizerte<br>24 detections<br>active in 11 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 18</div>`)[0];
+                popup_ce0de7eb5f857b27366450495611bced.setContent(html_b811d1c64bd94f9b7fcad699b1d6d80b);
+            
+        
+
+        circle_marker_e2fc3c2111c0cf7cb73da8c586567d54.bindPopup(popup_ce0de7eb5f857b27366450495611bced)
+        ;
+
+        
+    
+    
+            var circle_marker_a549f9b3f8c39db5470a41210114aa78 = L.circleMarker(
+                [35.3163, 8.8398],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_109ec23f60825c2a9d129c12e10f3675 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_19393f238c3720e9e11252077f4a85bb = $(`<div id="html_19393f238c3720e9e11252077f4a85bb" style="width: 100.0%; height: 100.0%;">Kasserine<br>733 detections<br>active in 10 years (2013-2026)<br>peak month: 8<br>MODIS detections nearby: 208</div>`)[0];
+                popup_109ec23f60825c2a9d129c12e10f3675.setContent(html_19393f238c3720e9e11252077f4a85bb);
+            
+        
+
+        circle_marker_a549f9b3f8c39db5470a41210114aa78.bindPopup(popup_109ec23f60825c2a9d129c12e10f3675)
+        ;
+
+        
+    
+    
+            var circle_marker_884cdddcc9065cf7d284b897e4990f69 = L.circleMarker(
+                [36.8023, 9.3726],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_79d497fe8e961e742762b76e04defd39 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e7caac0490caf42d723f6a95d99e4c44 = $(`<div id="html_e7caac0490caf42d723f6a95d99e4c44" style="width: 100.0%; height: 100.0%;">Bizerte<br>36 detections<br>active in 10 years (2013-2026)<br>peak month: 9<br>MODIS detections nearby: 37</div>`)[0];
+                popup_79d497fe8e961e742762b76e04defd39.setContent(html_e7caac0490caf42d723f6a95d99e4c44);
+            
+        
+
+        circle_marker_884cdddcc9065cf7d284b897e4990f69.bindPopup(popup_79d497fe8e961e742762b76e04defd39)
+        ;
+
+        
+    
+    
+            var circle_marker_1e9441a26c5de07574f12136d9c83952 = L.circleMarker(
+                [36.47, 9.1609],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.744562646538029, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_0ee00af24d566de8ca11313eaec11291 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2a08bf6e79b3fbe9e796c0812d96acc9 = $(`<div id="html_2a08bf6e79b3fbe9e796c0812d96acc9" style="width: 100.0%; height: 100.0%;">Béja<br>33 detections<br>active in 10 years (2013-2026)<br>peak month: 9<br>MODIS detections nearby: 23</div>`)[0];
+                popup_0ee00af24d566de8ca11313eaec11291.setContent(html_2a08bf6e79b3fbe9e796c0812d96acc9);
+            
+        
+
+        circle_marker_1e9441a26c5de07574f12136d9c83952.bindPopup(popup_0ee00af24d566de8ca11313eaec11291)
+        ;
+
+        
+    
+    
+            var circle_marker_11dfe734174b9744cf5874fcff0cf81c = L.circleMarker(
+                [34.9048, 8.5402],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.65685424949238, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_69d096ccd90af8c8e88b67df42322486 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d72253da87c11b674e966f8aed7b249a = $(`<div id="html_d72253da87c11b674e966f8aed7b249a" style="width: 100.0%; height: 100.0%;">Kasserine<br>32 detections<br>active in 10 years (2014-2026)<br>peak month: 7<br>MODIS detections nearby: 0</div>`)[0];
+                popup_69d096ccd90af8c8e88b67df42322486.setContent(html_d72253da87c11b674e966f8aed7b249a);
+            
+        
+
+        circle_marker_11dfe734174b9744cf5874fcff0cf81c.bindPopup(popup_69d096ccd90af8c8e88b67df42322486)
+        ;
+
+        
+    
+    
+            var circle_marker_61797e1f34759d7ac1966d87246e42ec = L.circleMarker(
+                [36.5476, 8.9476],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.099019513592784, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_dedf8f41b8a2e9d586c4773d522b48c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2fbf0ad79e442518304cc00fb0e17fad = $(`<div id="html_2fbf0ad79e442518304cc00fb0e17fad" style="width: 100.0%; height: 100.0%;">Jendouba<br>26 detections<br>active in 10 years (2013-2026)<br>peak month: 8<br>MODIS detections nearby: 16</div>`)[0];
+                popup_dedf8f41b8a2e9d586c4773d522b48c9.setContent(html_2fbf0ad79e442518304cc00fb0e17fad);
+            
+        
+
+        circle_marker_61797e1f34759d7ac1966d87246e42ec.bindPopup(popup_dedf8f41b8a2e9d586c4773d522b48c9)
+        ;
+
+        
+    
+    
+            var circle_marker_e34e6497f276a698ab3230c054de5d21 = L.circleMarker(
+                [35.1929, 8.6607],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_3e27136811ea141c213e02ba9f37671e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02c96f34739a6b1872e454df10616a71 = $(`<div id="html_02c96f34739a6b1872e454df10616a71" style="width: 100.0%; height: 100.0%;">Kasserine<br>974 detections<br>active in 9 years (2013-2021)<br>peak month: 8<br>MODIS detections nearby: 226</div>`)[0];
+                popup_3e27136811ea141c213e02ba9f37671e.setContent(html_02c96f34739a6b1872e454df10616a71);
+            
+        
+
+        circle_marker_e34e6497f276a698ab3230c054de5d21.bindPopup(popup_3e27136811ea141c213e02ba9f37671e)
+        ;
+
+        
+    
+    
+            var circle_marker_8e76ba30fde5e2e4454e7252775ed88f = L.circleMarker(
+                [36.797, 8.6226],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.435595774162696, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_2adad55deb1f45c6ac441f41d259d080 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_544b4a1311f3aad827904322fcd253ae = $(`<div id="html_544b4a1311f3aad827904322fcd253ae" style="width: 100.0%; height: 100.0%;">Jendouba<br>304 detections<br>active in 9 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 157</div>`)[0];
+                popup_2adad55deb1f45c6ac441f41d259d080.setContent(html_544b4a1311f3aad827904322fcd253ae);
+            
+        
+
+        circle_marker_8e76ba30fde5e2e4454e7252775ed88f.bindPopup(popup_2adad55deb1f45c6ac441f41d259d080)
+        ;
+
+        
+    
+    
+            var circle_marker_fb969355d83997c321a2c2ba8b01e9c7 = L.circleMarker(
+                [36.0028, 9.6225],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.288205727444508, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_4bea5e9ebf3bb2c8bd8c28d2b3ba3c25 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_656688d2a68c4e17aedcc1388e9643da = $(`<div id="html_656688d2a68c4e17aedcc1388e9643da" style="width: 100.0%; height: 100.0%;">Siliana<br>151 detections<br>active in 9 years (2012-2023)<br>peak month: 7<br>MODIS detections nearby: 92</div>`)[0];
+                popup_4bea5e9ebf3bb2c8bd8c28d2b3ba3c25.setContent(html_656688d2a68c4e17aedcc1388e9643da);
+            
+        
+
+        circle_marker_fb969355d83997c321a2c2ba8b01e9c7.bindPopup(popup_4bea5e9ebf3bb2c8bd8c28d2b3ba3c25)
+        ;
+
+        
+    
+    
+            var circle_marker_4432a3365842c04a478485a63a69d476 = L.circleMarker(
+                [36.9799, 9.5258],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.744562646538029, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_eb693f6059d2398390e3fff7e2d02a48 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a286743a45eec252c9c361e7ecbc29b3 = $(`<div id="html_a286743a45eec252c9c361e7ecbc29b3" style="width: 100.0%; height: 100.0%;">Bizerte<br>33 detections<br>active in 9 years (2013-2026)<br>peak month: 8<br>MODIS detections nearby: 27</div>`)[0];
+                popup_eb693f6059d2398390e3fff7e2d02a48.setContent(html_a286743a45eec252c9c361e7ecbc29b3);
+            
+        
+
+        circle_marker_4432a3365842c04a478485a63a69d476.bindPopup(popup_eb693f6059d2398390e3fff7e2d02a48)
+        ;
+
+        
+    
+    
+            var circle_marker_9faa8d174714d60a4170d2d5b240f114 = L.circleMarker(
+                [36.9023, 9.346],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.65685424949238, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_279e5564a8fe658220d62de48cdaa5c0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f41f1017fd6f9ed61ecfbb64e30cf397 = $(`<div id="html_f41f1017fd6f9ed61ecfbb64e30cf397" style="width: 100.0%; height: 100.0%;">Bizerte<br>32 detections<br>active in 9 years (2012-2025)<br>peak month: 9<br>MODIS detections nearby: 18</div>`)[0];
+                popup_279e5564a8fe658220d62de48cdaa5c0.setContent(html_f41f1017fd6f9ed61ecfbb64e30cf397);
+            
+        
+
+        circle_marker_9faa8d174714d60a4170d2d5b240f114.bindPopup(popup_279e5564a8fe658220d62de48cdaa5c0)
+        ;
+
+        
+    
+    
+            var circle_marker_a901020854c9cee32c7b93215b7bbc14 = L.circleMarker(
+                [36.8565, 10.0705],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.567764362830022, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_a5a871cb71fcd90d69aa941634216ac1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf52ba2b016cdab0d25b8a5825ee65b6 = $(`<div id="html_cf52ba2b016cdab0d25b8a5825ee65b6" style="width: 100.0%; height: 100.0%;">Manouba<br>31 detections<br>active in 9 years (2013-2025)<br>peak month: 8<br>MODIS detections nearby: 16</div>`)[0];
+                popup_a5a871cb71fcd90d69aa941634216ac1.setContent(html_cf52ba2b016cdab0d25b8a5825ee65b6);
+            
+        
+
+        circle_marker_a901020854c9cee32c7b93215b7bbc14.bindPopup(popup_a5a871cb71fcd90d69aa941634216ac1)
+        ;
+
+        
+    
+    
+            var circle_marker_fb7ba0c52d088c7d8e718bfc0dfc3fe9 = L.circleMarker(
+                [35.6287, 10.8805],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.385164807134505, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_ab54f40498431c32c219753e34f14cce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cb88b0ba78a64a1ce503934dcee128df = $(`<div id="html_cb88b0ba78a64a1ce503934dcee128df" style="width: 100.0%; height: 100.0%;">Monastir<br>29 detections<br>active in 9 years (2012-2025)<br>peak month: 8<br>MODIS detections nearby: 4</div>`)[0];
+                popup_ab54f40498431c32c219753e34f14cce.setContent(html_cb88b0ba78a64a1ce503934dcee128df);
+            
+        
+
+        circle_marker_fb7ba0c52d088c7d8e718bfc0dfc3fe9.bindPopup(popup_ab54f40498431c32c219753e34f14cce)
+        ;
+
+        
+    
+    
+            var circle_marker_fd42ba592bc6350e0465f27eb863998f = L.circleMarker(
+                [36.7372, 10.0729],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.291502622129181, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_f565c01adfeaa6b67581c74d1506885b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3ea786801ff3309001632767549f5f7c = $(`<div id="html_3ea786801ff3309001632767549f5f7c" style="width: 100.0%; height: 100.0%;">Tunis<br>28 detections<br>active in 9 years (2013-2025)<br>peak month: 6<br>MODIS detections nearby: 6</div>`)[0];
+                popup_f565c01adfeaa6b67581c74d1506885b.setContent(html_3ea786801ff3309001632767549f5f7c);
+            
+        
+
+        circle_marker_fd42ba592bc6350e0465f27eb863998f.bindPopup(popup_f565c01adfeaa6b67581c74d1506885b)
+        ;
+
+        
+    
+    
+            var circle_marker_c79ea1eff84504fde1c970b41f005bb6 = L.circleMarker(
+                [36.704, 9.2575],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.196152422706632, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_ffddea6a30189799bdf342e3931fd95c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_25ca041302e3d0a22cd94f43b8303211 = $(`<div id="html_25ca041302e3d0a22cd94f43b8303211" style="width: 100.0%; height: 100.0%;">Béja<br>27 detections<br>active in 9 years (2012-2025)<br>peak month: 7<br>MODIS detections nearby: 12</div>`)[0];
+                popup_ffddea6a30189799bdf342e3931fd95c.setContent(html_25ca041302e3d0a22cd94f43b8303211);
+            
+        
+
+        circle_marker_c79ea1eff84504fde1c970b41f005bb6.bindPopup(popup_ffddea6a30189799bdf342e3931fd95c)
+        ;
+
+        
+    
+    
+            var circle_marker_c15e736cda09234ac771ec1564b933b0 = L.circleMarker(
+                [36.7994, 9.4048],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.196152422706632, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_66ce8590827f281c4e1a35d5e50b6bfb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_812dd127ce4f27dd3ecfe6523253af60 = $(`<div id="html_812dd127ce4f27dd3ecfe6523253af60" style="width: 100.0%; height: 100.0%;">Bizerte<br>27 detections<br>active in 9 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 21</div>`)[0];
+                popup_66ce8590827f281c4e1a35d5e50b6bfb.setContent(html_812dd127ce4f27dd3ecfe6523253af60);
+            
+        
+
+        circle_marker_c15e736cda09234ac771ec1564b933b0.bindPopup(popup_66ce8590827f281c4e1a35d5e50b6bfb)
+        ;
+
+        
+    
+    
+            var circle_marker_eec9f7153a81cf0b0960e589f3e228b9 = L.circleMarker(
+                [36.2806, 9.1925],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.196152422706632, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_a1daeb7728c486336f14a4594cce2e31 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aee0d98ef6a198d0d4043094db77220b = $(`<div id="html_aee0d98ef6a198d0d4043094db77220b" style="width: 100.0%; height: 100.0%;">Siliana<br>27 detections<br>active in 9 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 13</div>`)[0];
+                popup_a1daeb7728c486336f14a4594cce2e31.setContent(html_aee0d98ef6a198d0d4043094db77220b);
+            
+        
+
+        circle_marker_eec9f7153a81cf0b0960e589f3e228b9.bindPopup(popup_a1daeb7728c486336f14a4594cce2e31)
+        ;
+
+        
+    
+    
+            var circle_marker_34d0025065ba11d845f0bca7fa3ef027 = L.circleMarker(
+                [36.7431, 9.3566],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.898979485566356, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_3fcf407fa17bbff1316487280e1f38d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d3d11b3e93e4793e1aa84cec6419e917 = $(`<div id="html_d3d11b3e93e4793e1aa84cec6419e917" style="width: 100.0%; height: 100.0%;">Béja<br>24 detections<br>active in 9 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 19</div>`)[0];
+                popup_3fcf407fa17bbff1316487280e1f38d7.setContent(html_d3d11b3e93e4793e1aa84cec6419e917);
+            
+        
+
+        circle_marker_34d0025065ba11d845f0bca7fa3ef027.bindPopup(popup_3fcf407fa17bbff1316487280e1f38d7)
+        ;
+
+        
+    
+    
+            var circle_marker_0af6dd2e440c5b10ff238cb8d246ecf9 = L.circleMarker(
+                [36.5714, 8.8238],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.123105625617661, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_4b0ee20ddf3939f816d3fc7161c9d61d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_39a72b5673ec730a13ca323acfb422e7 = $(`<div id="html_39a72b5673ec730a13ca323acfb422e7" style="width: 100.0%; height: 100.0%;">Jendouba<br>17 detections<br>active in 9 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 1</div>`)[0];
+                popup_4b0ee20ddf3939f816d3fc7161c9d61d.setContent(html_39a72b5673ec730a13ca323acfb422e7);
+            
+        
+
+        circle_marker_0af6dd2e440c5b10ff238cb8d246ecf9.bindPopup(popup_4b0ee20ddf3939f816d3fc7161c9d61d)
+        ;
+
+        
+    
+    
+            var circle_marker_08c8641ba503ebb64e476bbde78db87b = L.circleMarker(
+                [34.8531, 10.7614],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.123105625617661, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_ce652d20286f12dcb9e5e5a134192379 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_8790e5735a467fd1cf8531fb775ef01d = $(`<div id="html_8790e5735a467fd1cf8531fb775ef01d" style="width: 100.0%; height: 100.0%;">Sfax<br>17 detections<br>active in 9 years (2015-2026)<br>peak month: 9<br>MODIS detections nearby: 6</div>`)[0];
+                popup_ce652d20286f12dcb9e5e5a134192379.setContent(html_8790e5735a467fd1cf8531fb775ef01d);
+            
+        
+
+        circle_marker_08c8641ba503ebb64e476bbde78db87b.bindPopup(popup_ce652d20286f12dcb9e5e5a134192379)
+        ;
+
+        
+    
+    
+            var circle_marker_51b3c22f64410efd15499b4850bd470f = L.circleMarker(
+                [36.751, 10.2016],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_7a69a3f1a7a947a1379f48adf043bc9c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fc5b52adfc920cc4a2229367ee00321a = $(`<div id="html_fc5b52adfc920cc4a2229367ee00321a" style="width: 100.0%; height: 100.0%;">Tunis<br>16 detections<br>active in 9 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 0</div>`)[0];
+                popup_7a69a3f1a7a947a1379f48adf043bc9c.setContent(html_fc5b52adfc920cc4a2229367ee00321a);
+            
+        
+
+        circle_marker_51b3c22f64410efd15499b4850bd470f.bindPopup(popup_7a69a3f1a7a947a1379f48adf043bc9c)
+        ;
+
+        
+    
+    
+            var circle_marker_48d7544a6414fbfc286b42087fa883b6 = L.circleMarker(
+                [36.8866, 10.2073],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_5527b88917d21c8e34c1be84ae9438b5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b01b36d3963b4e25f474537bed0cc66 = $(`<div id="html_0b01b36d3963b4e25f474537bed0cc66" style="width: 100.0%; height: 100.0%;">Ariana<br>16 detections<br>active in 9 years (2013-2025)<br>peak month: 5<br>MODIS detections nearby: 1</div>`)[0];
+                popup_5527b88917d21c8e34c1be84ae9438b5.setContent(html_0b01b36d3963b4e25f474537bed0cc66);
+            
+        
+
+        circle_marker_48d7544a6414fbfc286b42087fa883b6.bindPopup(popup_5527b88917d21c8e34c1be84ae9438b5)
+        ;
+
+        
+    
+    
+            var circle_marker_96fbdc8f282a6e276d91401219b9f34b = L.circleMarker(
+                [34.6866, 10.6421],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.741657386773941, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_8b9013843c981ee1dc25e340e82f2898 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26e3b20feeb35793239e0fd4a7e6538d = $(`<div id="html_26e3b20feeb35793239e0fd4a7e6538d" style="width: 100.0%; height: 100.0%;">Sfax<br>14 detections<br>active in 9 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 0</div>`)[0];
+                popup_8b9013843c981ee1dc25e340e82f2898.setContent(html_26e3b20feeb35793239e0fd4a7e6538d);
+            
+        
+
+        circle_marker_96fbdc8f282a6e276d91401219b9f34b.bindPopup(popup_8b9013843c981ee1dc25e340e82f2898)
+        ;
+
+        
+    
+    
+            var circle_marker_242e20a71aa522c149359dc0d69ee226 = L.circleMarker(
+                [36.6129, 10.4436],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.464101615137754, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_0c9ed3a94320108e4db377c75f0f1d99 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b1f3100d44d91f0a363dabe5a5622791 = $(`<div id="html_b1f3100d44d91f0a363dabe5a5622791" style="width: 100.0%; height: 100.0%;">Nabeul<br>12 detections<br>active in 9 years (2012-2026)<br>peak month: 10<br>MODIS detections nearby: 3</div>`)[0];
+                popup_0c9ed3a94320108e4db377c75f0f1d99.setContent(html_b1f3100d44d91f0a363dabe5a5622791);
+            
+        
+
+        circle_marker_242e20a71aa522c149359dc0d69ee226.bindPopup(popup_0c9ed3a94320108e4db377c75f0f1d99)
+        ;
+
+        
+    
+    
+            var circle_marker_1f5df333c31a5af3987e2b0709a9e89e = L.circleMarker(
+                [35.1021, 8.9154],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.05547008526779, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_b9792a958e43ef65bbfb2abfb3c11fb4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_efba1b49df6bcb38f35bc358bf340966 = $(`<div id="html_efba1b49df6bcb38f35bc358bf340966" style="width: 100.0%; height: 100.0%;">Kasserine<br>326 detections<br>active in 8 years (2014-2023)<br>peak month: 8<br>MODIS detections nearby: 141</div>`)[0];
+                popup_b9792a958e43ef65bbfb2abfb3c11fb4.setContent(html_efba1b49df6bcb38f35bc358bf340966);
+            
+        
+
+        circle_marker_1f5df333c31a5af3987e2b0709a9e89e.bindPopup(popup_b9792a958e43ef65bbfb2abfb3c11fb4)
+        ;
+
+        
+    
+    
+            var circle_marker_746ac90c65fd150d21a0e7a720c9cbee = L.circleMarker(
+                [36.2235, 9.8655],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.643650760992955, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_31635947a28daff1dab2fae501ba83af = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dd2d94f0b93ec1cf2cffca195a0339b1 = $(`<div id="html_dd2d94f0b93ec1cf2cffca195a0339b1" style="width: 100.0%; height: 100.0%;">Zaghouan<br>93 detections<br>active in 8 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 47</div>`)[0];
+                popup_31635947a28daff1dab2fae501ba83af.setContent(html_dd2d94f0b93ec1cf2cffca195a0339b1);
+            
+        
+
+        circle_marker_746ac90c65fd150d21a0e7a720c9cbee.bindPopup(popup_31635947a28daff1dab2fae501ba83af)
+        ;
+
+        
+    
+    
+            var circle_marker_35ed1c15768c194075e839cded120e18 = L.circleMarker(
+                [36.5566, 8.2302],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.14142842854285, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_4f1816631711f2d5b1ac95a8fe58eb0e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2b25a765934e062e03c94bf7573a5d36 = $(`<div id="html_2b25a765934e062e03c94bf7573a5d36" style="width: 100.0%; height: 100.0%;">outside<br>51 detections<br>active in 8 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 26</div>`)[0];
+                popup_4f1816631711f2d5b1ac95a8fe58eb0e.setContent(html_2b25a765934e062e03c94bf7573a5d36);
+            
+        
+
+        circle_marker_35ed1c15768c194075e839cded120e18.bindPopup(popup_4f1816631711f2d5b1ac95a8fe58eb0e)
+        ;
+
+        
+    
+    
+            var circle_marker_b2decaff586b43dbd6d9f972b69d2fba = L.circleMarker(
+                [36.5206, 8.2867],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.071067811865476, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_9a957705993e920941f16de67d70e0e0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_42ee9430968f9db9b1fd4481d90123a3 = $(`<div id="html_42ee9430968f9db9b1fd4481d90123a3" style="width: 100.0%; height: 100.0%;">Jendouba<br>50 detections<br>active in 8 years (2013-2023)<br>peak month: 8<br>MODIS detections nearby: 33</div>`)[0];
+                popup_9a957705993e920941f16de67d70e0e0.setContent(html_42ee9430968f9db9b1fd4481d90123a3);
+            
+        
+
+        circle_marker_b2decaff586b43dbd6d9f972b69d2fba.bindPopup(popup_9a957705993e920941f16de67d70e0e0)
+        ;
+
+        
+    
+    
+            var circle_marker_da93ef493e9138d764e139eec2bf551c = L.circleMarker(
+                [31.7464, 9.1434],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.385164807134505, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_45035d0da6fb220d3107ef395436a568 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_536b5faaa82c3faf0d125bf35aefebae = $(`<div id="html_536b5faaa82c3faf0d125bf35aefebae" style="width: 100.0%; height: 100.0%;">outside<br>29 detections<br>active in 8 years (2013-2022)<br>peak month: 4<br>MODIS detections nearby: 0</div>`)[0];
+                popup_45035d0da6fb220d3107ef395436a568.setContent(html_536b5faaa82c3faf0d125bf35aefebae);
+            
+        
+
+        circle_marker_da93ef493e9138d764e139eec2bf551c.bindPopup(popup_45035d0da6fb220d3107ef395436a568)
+        ;
+
+        
+    
+    
+            var circle_marker_a75e886c2d00f59eb9e5610357afc97d = L.circleMarker(
+                [36.5199, 9.1466],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.291502622129181, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_15ff4c8bdec14519b0a96502014e6f8c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_39eb7072f02bf21ffa8f4b989f6e6e80 = $(`<div id="html_39eb7072f02bf21ffa8f4b989f6e6e80" style="width: 100.0%; height: 100.0%;">Béja<br>28 detections<br>active in 8 years (2013-2024)<br>peak month: 8<br>MODIS detections nearby: 20</div>`)[0];
+                popup_15ff4c8bdec14519b0a96502014e6f8c.setContent(html_39eb7072f02bf21ffa8f4b989f6e6e80);
+            
+        
+
+        circle_marker_a75e886c2d00f59eb9e5610357afc97d.bindPopup(popup_15ff4c8bdec14519b0a96502014e6f8c)
+        ;
+
+        
+    
+    
+            var circle_marker_0e6d3af2ca25926e23cec299ab551508 = L.circleMarker(
+                [36.9295, 9.6287],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.291502622129181, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_abfa65092a703a7c359552882a4e7518 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b92609814872e9e5154dc8eaebc5f34 = $(`<div id="html_0b92609814872e9e5154dc8eaebc5f34" style="width: 100.0%; height: 100.0%;">Bizerte<br>28 detections<br>active in 8 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 20</div>`)[0];
+                popup_abfa65092a703a7c359552882a4e7518.setContent(html_0b92609814872e9e5154dc8eaebc5f34);
+            
+        
+
+        circle_marker_0e6d3af2ca25926e23cec299ab551508.bindPopup(popup_abfa65092a703a7c359552882a4e7518)
+        ;
+
+        
+    
+    
+            var circle_marker_ab0eeec42cdcb5e0c7e54c393fd8bbfa = L.circleMarker(
+                [36.8738, 9.5673],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.69041575982343, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_b34d4792c6cfdd18949d3a17dc30a57b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e48ab4f92eb9f0177f47d2e44667ba46 = $(`<div id="html_e48ab4f92eb9f0177f47d2e44667ba46" style="width: 100.0%; height: 100.0%;">Bizerte<br>22 detections<br>active in 8 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 18</div>`)[0];
+                popup_b34d4792c6cfdd18949d3a17dc30a57b.setContent(html_e48ab4f92eb9f0177f47d2e44667ba46);
+            
+        
+
+        circle_marker_ab0eeec42cdcb5e0c7e54c393fd8bbfa.bindPopup(popup_b34d4792c6cfdd18949d3a17dc30a57b)
+        ;
+
+        
+    
+    
+            var circle_marker_7b07c0ce9030fe7d4866ada3b733b128 = L.circleMarker(
+                [37.0823, 9.7677],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.358898943540674, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_6ad63ba77c430cb41ed530d714e52041 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6a1f95109d88499babc953d63528d0a4 = $(`<div id="html_6a1f95109d88499babc953d63528d0a4" style="width: 100.0%; height: 100.0%;">Bizerte<br>19 detections<br>active in 8 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 13</div>`)[0];
+                popup_6ad63ba77c430cb41ed530d714e52041.setContent(html_6a1f95109d88499babc953d63528d0a4);
+            
+        
+
+        circle_marker_7b07c0ce9030fe7d4866ada3b733b128.bindPopup(popup_6ad63ba77c430cb41ed530d714e52041)
+        ;
+
+        
+    
+    
+            var circle_marker_20455852659c329422a1cd9f7236eb34 = L.circleMarker(
+                [32.9606, 10.489],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.242640687119285, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_4d4cb67c65237fc0c17b97758d780dc1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2acf2f72b426e340d8dbe8e1bad48372 = $(`<div id="html_2acf2f72b426e340d8dbe8e1bad48372" style="width: 100.0%; height: 100.0%;">Tataouine<br>18 detections<br>active in 8 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 0</div>`)[0];
+                popup_4d4cb67c65237fc0c17b97758d780dc1.setContent(html_2acf2f72b426e340d8dbe8e1bad48372);
+            
+        
+
+        circle_marker_20455852659c329422a1cd9f7236eb34.bindPopup(popup_4d4cb67c65237fc0c17b97758d780dc1)
+        ;
+
+        
+    
+    
+            var circle_marker_fb741c4ef137d806dced7e530bc3fdda = L.circleMarker(
+                [36.6986, 10.1938],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_3abb1e6c6ec85635ef082f60c98d4a54 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6b9b3b97c3122b7df14adcfd3f6b8cff = $(`<div id="html_6b9b3b97c3122b7df14adcfd3f6b8cff" style="width: 100.0%; height: 100.0%;">Ben Arous<br>16 detections<br>active in 8 years (2012-2021)<br>peak month: 6<br>MODIS detections nearby: 0</div>`)[0];
+                popup_3abb1e6c6ec85635ef082f60c98d4a54.setContent(html_6b9b3b97c3122b7df14adcfd3f6b8cff);
+            
+        
+
+        circle_marker_fb741c4ef137d806dced7e530bc3fdda.bindPopup(popup_3abb1e6c6ec85635ef082f60c98d4a54)
+        ;
+
+        
+    
+    
+            var circle_marker_9fe74b074cc2cf349a990bfdf3c88fba = L.circleMarker(
+                [33.899, 9.5645],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_d823129c3e52cf971d01fce4e556c214 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0797ce0a0f08f6cf394d684e3df7c88f = $(`<div id="html_0797ce0a0f08f6cf394d684e3df7c88f" style="width: 100.0%; height: 100.0%;">Gabès<br>16 detections<br>active in 8 years (2012-2025)<br>peak month: 10<br>MODIS detections nearby: 1</div>`)[0];
+                popup_d823129c3e52cf971d01fce4e556c214.setContent(html_0797ce0a0f08f6cf394d684e3df7c88f);
+            
+        
+
+        circle_marker_9fe74b074cc2cf349a990bfdf3c88fba.bindPopup(popup_d823129c3e52cf971d01fce4e556c214)
+        ;
+
+        
+    
+    
+            var circle_marker_113a08e8c69eec20f1866263dd3258bd = L.circleMarker(
+                [37.0106, 9.6868],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.872983346207417, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_68fc8ee175967d5df14dd305dbf19437 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe18527455f9270f960cd3125fb63873 = $(`<div id="html_fe18527455f9270f960cd3125fb63873" style="width: 100.0%; height: 100.0%;">Bizerte<br>15 detections<br>active in 8 years (2012-2025)<br>peak month: 8<br>MODIS detections nearby: 12</div>`)[0];
+                popup_68fc8ee175967d5df14dd305dbf19437.setContent(html_fe18527455f9270f960cd3125fb63873);
+            
+        
+
+        circle_marker_113a08e8c69eec20f1866263dd3258bd.bindPopup(popup_68fc8ee175967d5df14dd305dbf19437)
+        ;
+
+        
+    
+    
+            var circle_marker_7c7cebf2a07002b6925ede0e1653d48f = L.circleMarker(
+                [37.0077, 9.7331],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.872983346207417, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_bae04727f3431ea729107029af3d3007 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ae00ce94b215a01915f7f623c796abc4 = $(`<div id="html_ae00ce94b215a01915f7f623c796abc4" style="width: 100.0%; height: 100.0%;">Bizerte<br>15 detections<br>active in 8 years (2012-2024)<br>peak month: 8<br>MODIS detections nearby: 19</div>`)[0];
+                popup_bae04727f3431ea729107029af3d3007.setContent(html_ae00ce94b215a01915f7f623c796abc4);
+            
+        
+
+        circle_marker_7c7cebf2a07002b6925ede0e1653d48f.bindPopup(popup_bae04727f3431ea729107029af3d3007)
+        ;
+
+        
+    
+    
+            var circle_marker_b22b6c9d1d75b06d33a08614abcd4e8e = L.circleMarker(
+                [37.1525, 9.4761],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.60555127546399, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_c49dbf18ce99d643a479a2e896ed7a56 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fac6c72cd70acbefe47aeb47a11d2a04 = $(`<div id="html_fac6c72cd70acbefe47aeb47a11d2a04" style="width: 100.0%; height: 100.0%;">Bizerte<br>13 detections<br>active in 8 years (2012-2024)<br>peak month: 8<br>MODIS detections nearby: 27</div>`)[0];
+                popup_c49dbf18ce99d643a479a2e896ed7a56.setContent(html_fac6c72cd70acbefe47aeb47a11d2a04);
+            
+        
+
+        circle_marker_b22b6c9d1d75b06d33a08614abcd4e8e.bindPopup(popup_c49dbf18ce99d643a479a2e896ed7a56)
+        ;
+
+        
+    
+    
+            var circle_marker_82b738b68a9b99dd1aae97afca9ca0f3 = L.circleMarker(
+                [34.0049, 10.0245],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.60555127546399, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_4415ff54f44cf72d722633d1c4e1a6d7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3e14f7d36331423b6a4e27fade06e4b3 = $(`<div id="html_3e14f7d36331423b6a4e27fade06e4b3" style="width: 100.0%; height: 100.0%;">Gabès<br>13 detections<br>active in 8 years (2012-2025)<br>peak month: 1<br>MODIS detections nearby: 4</div>`)[0];
+                popup_4415ff54f44cf72d722633d1c4e1a6d7.setContent(html_3e14f7d36331423b6a4e27fade06e4b3);
+            
+        
+
+        circle_marker_82b738b68a9b99dd1aae97afca9ca0f3.bindPopup(popup_4415ff54f44cf72d722633d1c4e1a6d7)
+        ;
+
+        
+    
+    
+            var circle_marker_dd3ce72b368fc64d6d2a877ad99b864f = L.circleMarker(
+                [36.7671, 8.4453],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.038404810405297, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_2ff818530e0bf2bc661741fb5e6a2455 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f5cd733130c92ce9ce9e6c2d0455d405 = $(`<div id="html_f5cd733130c92ce9ce9e6c2d0455d405" style="width: 100.0%; height: 100.0%;">outside<br>170 detections<br>active in 7 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 92</div>`)[0];
+                popup_2ff818530e0bf2bc661741fb5e6a2455.setContent(html_f5cd733130c92ce9ce9e6c2d0455d405);
+            
+        
+
+        circle_marker_dd3ce72b368fc64d6d2a877ad99b864f.bindPopup(popup_2ff818530e0bf2bc661741fb5e6a2455)
+        ;
+
+        
+    
+    
+            var circle_marker_a1f3a77c52728b61f78a2a35f4ddd911 = L.circleMarker(
+                [36.9258, 9.0628],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.535653752852738, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_3aa1cfbf91ac489a9d13c658e4247875 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_eaff06f97d105f998d8fa359092bfe25 = $(`<div id="html_eaff06f97d105f998d8fa359092bfe25" style="width: 100.0%; height: 100.0%;">Béja<br>111 detections<br>active in 7 years (2014-2026)<br>peak month: 8<br>MODIS detections nearby: 49</div>`)[0];
+                popup_3aa1cfbf91ac489a9d13c658e4247875.setContent(html_eaff06f97d105f998d8fa359092bfe25);
+            
+        
+
+        circle_marker_a1f3a77c52728b61f78a2a35f4ddd911.bindPopup(popup_3aa1cfbf91ac489a9d13c658e4247875)
+        ;
+
+        
+    
+    
+            var circle_marker_7999a5cdcdd7c62ce6fbccbc2945d2db = L.circleMarker(
+                [36.5577, 8.2905],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.9498743710662, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_cbb08932a5b5a4316bd3132e372537a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9e345496fae71f33ff5d5a6724d5ff7 = $(`<div id="html_d9e345496fae71f33ff5d5a6724d5ff7" style="width: 100.0%; height: 100.0%;">outside<br>99 detections<br>active in 7 years (2012-2023)<br>peak month: 8<br>MODIS detections nearby: 39</div>`)[0];
+                popup_cbb08932a5b5a4316bd3132e372537a0.setContent(html_d9e345496fae71f33ff5d5a6724d5ff7);
+            
+        
+
+        circle_marker_7999a5cdcdd7c62ce6fbccbc2945d2db.bindPopup(popup_cbb08932a5b5a4316bd3132e372537a0)
+        ;
+
+        
+    
+    
+            var circle_marker_f86703e60f37bc5e9d4e1c2372b60a44 = L.circleMarker(
+                [37.1137, 9.4147],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.681145747868609, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_395a9c1ad4f7ab8c17bffa4bb6e41b38 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df462a445c9c01120efe0c8049583632 = $(`<div id="html_df462a445c9c01120efe0c8049583632" style="width: 100.0%; height: 100.0%;">Bizerte<br>59 detections<br>active in 7 years (2015-2026)<br>peak month: 8<br>MODIS detections nearby: 36</div>`)[0];
+                popup_395a9c1ad4f7ab8c17bffa4bb6e41b38.setContent(html_df462a445c9c01120efe0c8049583632);
+            
+        
+
+        circle_marker_f86703e60f37bc5e9d4e1c2372b60a44.bindPopup(popup_395a9c1ad4f7ab8c17bffa4bb6e41b38)
+        ;
+
+        
+    
+    
+            var circle_marker_bdf1021a5ee0d319ea76d6202b75f0df = L.circleMarker(
+                [36.9543, 9.2554],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.244997998398398, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_735342da6fbd8c4c267f8fa2e68d7b30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_77eb674ed31acb23194b291183eccac9 = $(`<div id="html_77eb674ed31acb23194b291183eccac9" style="width: 100.0%; height: 100.0%;">Bizerte<br>39 detections<br>active in 7 years (2014-2026)<br>peak month: 8<br>MODIS detections nearby: 18</div>`)[0];
+                popup_735342da6fbd8c4c267f8fa2e68d7b30.setContent(html_77eb674ed31acb23194b291183eccac9);
+            
+        
+
+        circle_marker_bdf1021a5ee0d319ea76d6202b75f0df.bindPopup(popup_735342da6fbd8c4c267f8fa2e68d7b30)
+        ;
+
+        
+    
+    
+            var circle_marker_cf504aa25a2bdbe7f5e62b751296cff5 = L.circleMarker(
+                [36.8957, 9.1105],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.082762530298218, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_e9f922bc78676988d8621ea3eca61cf3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_713f7e43198c202376fe1000c39e707e = $(`<div id="html_713f7e43198c202376fe1000c39e707e" style="width: 100.0%; height: 100.0%;">Béja<br>37 detections<br>active in 7 years (2012-2026)<br>peak month: 11<br>MODIS detections nearby: 10</div>`)[0];
+                popup_e9f922bc78676988d8621ea3eca61cf3.setContent(html_713f7e43198c202376fe1000c39e707e);
+            
+        
+
+        circle_marker_cf504aa25a2bdbe7f5e62b751296cff5.bindPopup(popup_e9f922bc78676988d8621ea3eca61cf3)
+        ;
+
+        
+    
+    
+            var circle_marker_cf5731b4a881f8fbf8c4dafae982eaa6 = L.circleMarker(
+                [36.5094, 9.2401],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.65685424949238, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_9c55b5292e2bc8830e648ec5dce2fa92 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f6f3a38d218678462b95d81d821e98ae = $(`<div id="html_f6f3a38d218678462b95d81d821e98ae" style="width: 100.0%; height: 100.0%;">Béja<br>32 detections<br>active in 7 years (2012-2026)<br>peak month: 9<br>MODIS detections nearby: 23</div>`)[0];
+                popup_9c55b5292e2bc8830e648ec5dce2fa92.setContent(html_f6f3a38d218678462b95d81d821e98ae);
+            
+        
+
+        circle_marker_cf5731b4a881f8fbf8c4dafae982eaa6.bindPopup(popup_9c55b5292e2bc8830e648ec5dce2fa92)
+        ;
+
+        
+    
+    
+            var circle_marker_8a5cbc01f9348a4fd9c44ded4a893d2f = L.circleMarker(
+                [37.2401, 9.6381],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.65685424949238, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_6d785728bea0a855d3cb212f3a4a9a72 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9722144cf538064ac34d66489c501e88 = $(`<div id="html_9722144cf538064ac34d66489c501e88" style="width: 100.0%; height: 100.0%;">Bizerte<br>32 detections<br>active in 7 years (2013-2025)<br>peak month: 7<br>MODIS detections nearby: 14</div>`)[0];
+                popup_6d785728bea0a855d3cb212f3a4a9a72.setContent(html_9722144cf538064ac34d66489c501e88);
+            
+        
+
+        circle_marker_8a5cbc01f9348a4fd9c44ded4a893d2f.bindPopup(popup_6d785728bea0a855d3cb212f3a4a9a72)
+        ;
+
+        
+    
+    
+            var circle_marker_cbba7416ab353d8ee6a533a6d6f33051 = L.circleMarker(
+                [37.0515, 9.2145],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.291502622129181, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_b2539edf019f42695ebbf68210aad602 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e23706fc6cbc05cf06a8221768b0014 = $(`<div id="html_9e23706fc6cbc05cf06a8221768b0014" style="width: 100.0%; height: 100.0%;">Bizerte<br>28 detections<br>active in 7 years (2014-2026)<br>peak month: 7<br>MODIS detections nearby: 17</div>`)[0];
+                popup_b2539edf019f42695ebbf68210aad602.setContent(html_9e23706fc6cbc05cf06a8221768b0014);
+            
+        
+
+        circle_marker_cbba7416ab353d8ee6a533a6d6f33051.bindPopup(popup_b2539edf019f42695ebbf68210aad602)
+        ;
+
+        
+    
+    
+            var circle_marker_9daad65a3b061731111a5ff8847f4ffa = L.circleMarker(
+                [36.8319, 8.7427],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.0, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_0ee3ddf6040fca6dd3907ed85092961a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3f0839449d47d772bb7bbd33867a6b93 = $(`<div id="html_3f0839449d47d772bb7bbd33867a6b93" style="width: 100.0%; height: 100.0%;">Jendouba<br>25 detections<br>active in 7 years (2016-2026)<br>peak month: 8<br>MODIS detections nearby: 6</div>`)[0];
+                popup_0ee3ddf6040fca6dd3907ed85092961a.setContent(html_3f0839449d47d772bb7bbd33867a6b93);
+            
+        
+
+        circle_marker_9daad65a3b061731111a5ff8847f4ffa.bindPopup(popup_0ee3ddf6040fca6dd3907ed85092961a)
+        ;
+
+        
+    
+    
+            var circle_marker_eb84ce6be812df362f7bcc16d09a6c39 = L.circleMarker(
+                [37.0282, 9.5698],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.795831523312719, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_c12bb7b1530db6691d9363731276baae = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_da1c974a40c3ce110e860f930987551f = $(`<div id="html_da1c974a40c3ce110e860f930987551f" style="width: 100.0%; height: 100.0%;">Bizerte<br>23 detections<br>active in 7 years (2014-2026)<br>peak month: 8<br>MODIS detections nearby: 11</div>`)[0];
+                popup_c12bb7b1530db6691d9363731276baae.setContent(html_da1c974a40c3ce110e860f930987551f);
+            
+        
+
+        circle_marker_eb84ce6be812df362f7bcc16d09a6c39.bindPopup(popup_c12bb7b1530db6691d9363731276baae)
+        ;
+
+        
+    
+    
+            var circle_marker_71e6046b2e4452f8ffdb652a33e7f01e = L.circleMarker(
+                [34.3829, 8.6129],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.69041575982343, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_8d477ed5453190cffa13d4a8516e19ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_873eede93eb9cce00bfd5cc5d0780c4a = $(`<div id="html_873eede93eb9cce00bfd5cc5d0780c4a" style="width: 100.0%; height: 100.0%;">Gafsa<br>22 detections<br>active in 7 years (2012-2021)<br>peak month: 9<br>MODIS detections nearby: 0</div>`)[0];
+                popup_8d477ed5453190cffa13d4a8516e19ea.setContent(html_873eede93eb9cce00bfd5cc5d0780c4a);
+            
+        
+
+        circle_marker_71e6046b2e4452f8ffdb652a33e7f01e.bindPopup(popup_8d477ed5453190cffa13d4a8516e19ea)
+        ;
+
+        
+    
+    
+            var circle_marker_40157648fa29c21d3fa9c8f8ea96e991 = L.circleMarker(
+                [36.8487, 10.3065],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.58257569495584, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_9f1755f896dc5a0fd60747aeaa31185f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_09773011de374e253acef1449f3c0d49 = $(`<div id="html_09773011de374e253acef1449f3c0d49" style="width: 100.0%; height: 100.0%;">Tunis<br>21 detections<br>active in 7 years (2012-2026)<br>peak month: 8<br>MODIS detections nearby: 0</div>`)[0];
+                popup_9f1755f896dc5a0fd60747aeaa31185f.setContent(html_09773011de374e253acef1449f3c0d49);
+            
+        
+
+        circle_marker_40157648fa29c21d3fa9c8f8ea96e991.bindPopup(popup_9f1755f896dc5a0fd60747aeaa31185f)
+        ;
+
+        
+    
+    
+            var circle_marker_537169613247476f01da53815d6fd440 = L.circleMarker(
+                [36.8607, 9.9285],
+                {"bubblingMouseEvents": true, "color": "#4c78a8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4c78a8", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.60555127546399, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_991cf3f7559dab471a69fbee5b02da14 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b98ce5a563f6be0ccf497434b09f9dfb = $(`<div id="html_b98ce5a563f6be0ccf497434b09f9dfb" style="width: 100.0%; height: 100.0%;">Manouba<br>13 detections<br>active in 7 years (2012-2024)<br>peak month: 9<br>MODIS detections nearby: 1</div>`)[0];
+                popup_991cf3f7559dab471a69fbee5b02da14.setContent(html_b98ce5a563f6be0ccf497434b09f9dfb);
+            
+        
+
+        circle_marker_537169613247476f01da53815d6fd440.bindPopup(popup_991cf3f7559dab471a69fbee5b02da14)
+        ;
+
+        
+    
+    
+            var circle_marker_dca81540ea2ece55967bd966d35aac4c = L.circleMarker(
+                [36.803, 9.1803],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.60555127546399, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_0ec5810a36d890e44fa76dc70026f358 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_96072267db82298cc3e81835b81af8e7 = $(`<div id="html_96072267db82298cc3e81835b81af8e7" style="width: 100.0%; height: 100.0%;">Béja<br>13 detections<br>active in 7 years (2014-2025)<br>peak month: 9<br>MODIS detections nearby: 15</div>`)[0];
+                popup_0ec5810a36d890e44fa76dc70026f358.setContent(html_96072267db82298cc3e81835b81af8e7);
+            
+        
+
+        circle_marker_dca81540ea2ece55967bd966d35aac4c.bindPopup(popup_0ec5810a36d890e44fa76dc70026f358)
+        ;
+
+        
+    
+    
+            var circle_marker_009957b4fcd6130ca0cd8b712553592d = L.circleMarker(
+                [35.4253, 9.248],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 21.867962264113206, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_ffeb473c30bd3602efbb83fa23503334 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e9b4e5cb11f1b240533460797a828ad = $(`<div id="html_9e9b4e5cb11f1b240533460797a828ad" style="width: 100.0%; height: 100.0%;">Kasserine<br>356 detections<br>active in 6 years (2014-2021)<br>peak month: 7<br>MODIS detections nearby: 88</div>`)[0];
+                popup_ffeb473c30bd3602efbb83fa23503334.setContent(html_9e9b4e5cb11f1b240533460797a828ad);
+            
+        
+
+        circle_marker_009957b4fcd6130ca0cd8b712553592d.bindPopup(popup_ffeb473c30bd3602efbb83fa23503334)
+        ;
+
+        
+    
+    
+            var circle_marker_9e370a941ee93c073c759d69808c725e = L.circleMarker(
+                [36.6956, 8.6757],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.30413469565007, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_1bc8a8d67265d1a0a69e25a329e43620 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3c15767a85ef821752737e8431d74454 = $(`<div id="html_3c15767a85ef821752737e8431d74454" style="width: 100.0%; height: 100.0%;">Jendouba<br>177 detections<br>active in 6 years (2012-2025)<br>peak month: 8<br>MODIS detections nearby: 55</div>`)[0];
+                popup_1bc8a8d67265d1a0a69e25a329e43620.setContent(html_3c15767a85ef821752737e8431d74454);
+            
+        
+
+        circle_marker_9e370a941ee93c073c759d69808c725e.bindPopup(popup_1bc8a8d67265d1a0a69e25a329e43620)
+        ;
+
+        
+    
+    
+            var circle_marker_babc574587eb00990b5afc32cde6756e = L.circleMarker(
+                [37.1965, 9.2936],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.789826122551595, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_172f39448266c50a1073e23e1aeba8ff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c48c9ea5481324cecec1f7900a7b47d2 = $(`<div id="html_c48c9ea5481324cecec1f7900a7b47d2" style="width: 100.0%; height: 100.0%;">Bizerte<br>139 detections<br>active in 6 years (2017-2026)<br>peak month: 8<br>MODIS detections nearby: 69</div>`)[0];
+                popup_172f39448266c50a1073e23e1aeba8ff.setContent(html_c48c9ea5481324cecec1f7900a7b47d2);
+            
+        
+
+        circle_marker_babc574587eb00990b5afc32cde6756e.bindPopup(popup_172f39448266c50a1073e23e1aeba8ff)
+        ;
+
+        
+    
+    
+            var circle_marker_3f7a51387da97233e5fcbf26b7a8ad72 = L.circleMarker(
+                [37.0854, 9.1016],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.797958971132712, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_70d7afbe6cecab0e92cf0dce359033ba = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9782af2ae0d321d42474830ada718fc = $(`<div id="html_d9782af2ae0d321d42474830ada718fc" style="width: 100.0%; height: 100.0%;">Bizerte<br>96 detections<br>active in 6 years (2013-2026)<br>peak month: 7<br>MODIS detections nearby: 33</div>`)[0];
+                popup_70d7afbe6cecab0e92cf0dce359033ba.setContent(html_d9782af2ae0d321d42474830ada718fc);
+            
+        
+
+        circle_marker_3f7a51387da97233e5fcbf26b7a8ad72.bindPopup(popup_70d7afbe6cecab0e92cf0dce359033ba)
+        ;
+
+        
+    
+    
+            var circle_marker_60a594655ea7beb9d4cf6eca34f3424b = L.circleMarker(
+                [36.2761, 8.6116],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.539392014169456, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_8e016b63dc7ee051992c5cb2f2334996 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_dc8b8dd251d387267ee7baf50325fa8e = $(`<div id="html_dc8b8dd251d387267ee7baf50325fa8e" style="width: 100.0%; height: 100.0%;">El Kef<br>91 detections<br>active in 6 years (2015-2026)<br>peak month: 8<br>MODIS detections nearby: 41</div>`)[0];
+                popup_8e016b63dc7ee051992c5cb2f2334996.setContent(html_dc8b8dd251d387267ee7baf50325fa8e);
+            
+        
+
+        circle_marker_60a594655ea7beb9d4cf6eca34f3424b.bindPopup(popup_8e016b63dc7ee051992c5cb2f2334996)
+        ;
+
+        
+    
+    
+            var circle_marker_f0b95b91093e1082baf48afbfbdc582f = L.circleMarker(
+                [36.5453, 10.3995],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.16515138991168, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_1e79a26da9b6187b25245404b1ce6ea2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ca10bd1d910b6e5ff9d673f263ba9acf = $(`<div id="html_ca10bd1d910b6e5ff9d673f263ba9acf" style="width: 100.0%; height: 100.0%;">Nabeul<br>84 detections<br>active in 6 years (2012-2021)<br>peak month: 8<br>MODIS detections nearby: 39</div>`)[0];
+                popup_1e79a26da9b6187b25245404b1ce6ea2.setContent(html_ca10bd1d910b6e5ff9d673f263ba9acf);
+            
+        
+
+        circle_marker_f0b95b91093e1082baf48afbfbdc582f.bindPopup(popup_1e79a26da9b6187b25245404b1ce6ea2)
+        ;
+
+        
+    
+    
+            var circle_marker_9891e8d0a0c735dd376d542086d9fb5a = L.circleMarker(
+                [36.2962, 8.7994],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.888194417315589, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_7b758d62e37c2f197f5fbf0504b52ddf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7f4c0ec3f6a34578d66af828e90869b8 = $(`<div id="html_7f4c0ec3f6a34578d66af828e90869b8" style="width: 100.0%; height: 100.0%;">El Kef<br>79 detections<br>active in 6 years (2012-2017)<br>peak month: 8<br>MODIS detections nearby: 37</div>`)[0];
+                popup_7b758d62e37c2f197f5fbf0504b52ddf.setContent(html_7f4c0ec3f6a34578d66af828e90869b8);
+            
+        
+
+        circle_marker_9891e8d0a0c735dd376d542086d9fb5a.bindPopup(popup_7b758d62e37c2f197f5fbf0504b52ddf)
+        ;
+
+        
+    
+    
+            var circle_marker_963b56b4540e157122d8d8af8a1357c5 = L.circleMarker(
+                [36.877, 10.0475],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.744562646538029, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_125d0e8b1615913ebfa906dd0d22457c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_11e24d3b4b3ed9fa0ff162be4440bb36 = $(`<div id="html_11e24d3b4b3ed9fa0ff162be4440bb36" style="width: 100.0%; height: 100.0%;">Ariana<br>33 detections<br>active in 6 years (2012-2022)<br>peak month: 7<br>MODIS detections nearby: 22</div>`)[0];
+                popup_125d0e8b1615913ebfa906dd0d22457c.setContent(html_11e24d3b4b3ed9fa0ff162be4440bb36);
+            
+        
+
+        circle_marker_963b56b4540e157122d8d8af8a1357c5.bindPopup(popup_125d0e8b1615913ebfa906dd0d22457c)
+        ;
+
+        
+    
+    
+            var circle_marker_cef2a9105a9fe81daedff7019d4be471 = L.circleMarker(
+                [36.492, 10.7061],
+                {"bubblingMouseEvents": true, "color": "#b2182b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#b2182b", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.65685424949238, "stroke": true, "weight": 3}
+            ).addTo(map_17b12cb1324e593c7304a89a2e70afb5);
+        
+    
+        var popup_84177ced623b54933230dba14a1b1f36 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_58b937c1bbe0356411f9af41a725cc38 = $(`<div id="html_58b937c1bbe0356411f9af41a725cc38" style="width: 100.0%; height: 100.0%;">Nabeul<br>32 detections<br>active in 6 years (2012-2020)<br>peak month: 8<br>MODIS detections nearby: 11</div>`)[0];
+                popup_84177ced623b54933230dba14a1b1f36.setContent(html_58b937c1bbe0356411f9af41a725cc38);
+            
+        
+
+        circle_marker_cef2a9105a9fe81daedff7019d4be471.bindPopup(popup_84177ced623b54933230dba14a1b1f36)
+        ;
+
+        
+    
+</script>
+</html>

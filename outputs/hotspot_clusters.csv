@@ -1,0 +1,256 @@
+cluster,governorate,detections,years_active,first_year,last_year,peak_month,extent_km,modis_nearby,lat,lon,persistent,modis_supported,confirmed_persistent
+35,Bizerte,187,15,2012,2026,7,12.0,129,37.0649,9.6395,True,True,True
+39,Béja,101,14,2012,2026,9,9.9,74,36.7675,9.2621,True,True,True
+29,Béja,100,14,2012,2026,8,7.9,53,36.6852,9.182,True,True,True
+44,Béja,83,14,2012,2026,8,8.8,77,36.7418,9.3033,True,True,True
+25,El Kef,1531,13,2012,2026,7,31.0,564,36.308,8.4574,True,True,True
+61,Bizerte,284,13,2012,2026,8,14.0,174,37.3038,9.664,True,True,True
+83,Béja,142,13,2012,2026,8,9.7,77,36.8192,9.0848,True,True,True
+82,Bizerte,132,13,2012,2026,8,8.8,61,36.9479,9.4202,True,True,True
+12,Bizerte,54,13,2012,2024,9,4.4,54,37.0901,9.607,True,True,True
+64,Bizerte,113,12,2012,2026,8,9.3,171,37.2568,9.5427,True,True,True
+59,Bizerte,81,12,2012,2026,9,8.4,61,36.8957,9.4231,True,True,True
+68,Béja,51,12,2012,2026,9,6.8,44,36.51,9.1957,True,True,True
+66,Sousse,20,12,2012,2026,9,2.3,1,35.8786,10.5836,True,False,False
+37,Béja,66,11,2012,2026,9,7.5,48,36.4218,9.1496,True,True,True
+46,Jendouba,33,11,2012,2026,7,4.5,9,36.7263,8.8968,True,True,True
+60,Béja,25,11,2012,2026,8,3.3,15,36.7939,9.3123,True,True,True
+51,Bizerte,24,11,2012,2026,8,4.0,18,37.2304,9.689,True,True,True
+102,Kasserine,733,10,2013,2026,8,19.9,208,35.3163,8.8398,True,True,True
+106,Bizerte,36,10,2013,2026,9,4.9,37,36.8023,9.3726,True,True,True
+105,Béja,33,10,2013,2026,9,4.7,23,36.47,9.1609,True,True,True
+131,Kasserine,32,10,2014,2026,7,0.5,0,34.9048,8.5402,True,False,False
+90,Jendouba,26,10,2013,2026,8,2.7,16,36.5476,8.9476,True,True,True
+89,Kasserine,974,9,2013,2021,8,19.6,226,35.1929,8.6607,True,True,True
+22,Jendouba,304,9,2012,2026,8,13.2,157,36.797,8.6226,True,True,True
+15,Siliana,151,9,2012,2023,7,10.5,92,36.0028,9.6225,True,True,True
+149,Bizerte,33,9,2013,2026,8,5.1,27,36.9799,9.5258,True,True,True
+207,Bizerte,32,9,2012,2025,9,4.5,18,36.9023,9.346,True,True,True
+103,Manouba,31,9,2013,2025,8,3.6,16,36.8565,10.0705,True,True,True
+4,Monastir,29,9,2012,2025,8,2.2,4,35.6287,10.8805,True,True,True
+93,Tunis,28,9,2013,2025,6,2.9,6,36.7372,10.0729,True,True,True
+48,Béja,27,9,2012,2025,7,4.0,12,36.704,9.2575,True,True,True
+115,Bizerte,27,9,2012,2026,9,3.8,21,36.7994,9.4048,True,True,True
+191,Siliana,27,9,2012,2026,9,4.3,13,36.2806,9.1925,True,True,True
+79,Béja,24,9,2012,2026,9,3.3,19,36.7431,9.3566,True,True,True
+38,Jendouba,17,9,2012,2026,8,3.2,1,36.5714,8.8238,True,False,False
+169,Sfax,17,9,2015,2026,9,2.5,6,34.8531,10.7614,True,True,True
+78,Tunis,16,9,2012,2026,9,2.2,0,36.751,10.2016,True,False,False
+91,Ariana,16,9,2013,2025,5,2.3,1,36.8866,10.2073,True,False,False
+36,Sfax,14,9,2012,2026,8,0.5,0,34.6866,10.6421,True,False,False
+5,Nabeul,12,9,2012,2026,10,0.6,3,36.6129,10.4436,True,True,True
+110,Kasserine,326,8,2014,2023,8,13.8,141,35.1021,8.9154,True,True,True
+49,Zaghouan,93,8,2012,2026,8,8.8,47,36.2235,9.8655,True,True,True
+55,outside,51,8,2012,2026,8,5.1,26,36.5566,8.2302,True,True,True
+98,Jendouba,50,8,2013,2023,8,5.1,33,36.5206,8.2867,True,True,True
+87,outside,29,8,2013,2022,4,1.5,0,31.7464,9.1434,True,False,False
+161,Béja,28,8,2013,2024,8,4.2,20,36.5199,9.1466,True,True,True
+208,Bizerte,28,8,2012,2026,9,3.7,20,36.9295,9.6287,True,True,True
+139,Bizerte,22,8,2012,2026,9,3.2,18,36.8738,9.5673,True,True,True
+45,Bizerte,19,8,2012,2026,9,3.0,13,37.0823,9.7677,True,True,True
+17,Tataouine,18,8,2012,2026,8,1.3,0,32.9606,10.489,True,False,False
+147,Ben Arous,16,8,2012,2021,6,2.8,0,36.6986,10.1938,True,False,False
+151,Gabès,16,8,2012,2025,10,1.9,1,33.899,9.5645,True,False,False
+134,Bizerte,15,8,2012,2025,8,3.0,12,37.0106,9.6868,True,True,True
+223,Bizerte,15,8,2012,2024,8,3.3,19,37.0077,9.7331,True,True,True
+73,Bizerte,13,8,2012,2024,8,2.5,27,37.1525,9.4761,True,True,True
+84,Gabès,13,8,2012,2025,1,2.1,4,34.0049,10.0245,True,True,True
+53,outside,170,7,2012,2026,8,9.2,92,36.7671,8.4453,True,True,True
+144,Béja,111,7,2014,2026,8,9.7,49,36.9258,9.0628,True,True,True
+26,outside,99,7,2012,2023,8,7.0,39,36.5577,8.2905,True,True,True
+168,Bizerte,59,7,2015,2026,8,5.1,36,37.1137,9.4147,True,True,True
+143,Bizerte,39,7,2014,2026,8,4.2,18,36.9543,9.2554,True,True,True
+9,Béja,37,7,2012,2026,11,5.6,10,36.8957,9.1105,True,True,True
+70,Béja,32,7,2012,2026,9,4.2,23,36.5094,9.2401,True,True,True
+109,Bizerte,32,7,2013,2025,7,3.8,14,37.2401,9.6381,True,True,True
+180,Bizerte,28,7,2014,2026,7,3.9,17,37.0515,9.2145,True,True,True
+174,Jendouba,25,7,2016,2026,8,3.9,6,36.8319,8.7427,True,True,True
+125,Bizerte,23,7,2014,2026,8,2.4,11,37.0282,9.5698,True,True,True
+2,Gafsa,22,7,2012,2021,9,1.7,0,34.3829,8.6129,True,False,False
+13,Tunis,21,7,2012,2026,8,2.8,0,36.8487,10.3065,True,False,False
+107,Manouba,13,7,2012,2024,9,2.9,1,36.8607,9.9285,True,False,False
+204,Béja,13,7,2014,2025,9,2.7,15,36.803,9.1803,True,True,True
+126,Kasserine,356,6,2014,2021,7,10.5,88,35.4253,9.248,True,True,True
+58,Jendouba,177,6,2012,2025,8,9.2,55,36.6956,8.6757,True,True,True
+189,Bizerte,139,6,2017,2026,8,9.4,69,37.1965,9.2936,True,True,True
+114,Bizerte,96,6,2013,2026,7,6.1,33,37.0854,9.1016,True,True,True
+164,El Kef,91,6,2015,2026,8,8.5,41,36.2761,8.6116,True,True,True
+71,Nabeul,84,6,2012,2021,8,6.5,39,36.5453,10.3995,True,True,True
+30,El Kef,79,6,2012,2017,8,5.1,37,36.2962,8.7994,True,True,True
+10,Ariana,33,6,2012,2022,7,3.0,22,36.877,10.0475,True,True,True
+7,Nabeul,32,6,2012,2020,8,2.3,11,36.492,10.7061,True,True,True
+56,Bizerte,31,6,2012,2026,7,3.8,30,36.9918,9.8445,True,True,True
+116,Béja,31,6,2012,2026,9,5.1,34,36.7106,9.3263,True,True,True
+96,Bizerte,29,6,2012,2023,10,4.0,25,37.1578,9.5175,True,True,True
+23,Bizerte,27,6,2012,2026,9,3.7,5,36.9845,9.5769,True,True,True
+160,Béja,26,6,2015,2026,8,2.5,8,36.9576,9.0673,True,True,True
+81,Siliana,19,6,2012,2025,9,3.2,1,36.309,9.1019,True,False,False
+94,Kairouan,19,6,2012,2021,7,3.2,11,35.8958,9.5094,True,True,True
+41,Bizerte,14,6,2012,2026,9,1.9,17,36.8598,9.3879,True,True,True
+140,Bizerte,13,6,2012,2026,10,2.4,26,36.901,9.5515,True,True,True
+77,Tataouine,12,6,2012,2020,3,1.5,0,31.3174,9.9275,True,False,False
+108,Béja,12,6,2013,2026,10,2.1,7,36.7454,9.0313,True,True,True
+132,Bizerte,12,6,2013,2025,9,2.5,16,36.7904,9.4262,True,True,True
+244,Bizerte,12,6,2012,2025,8,2.3,18,36.839,9.4629,True,True,True
+111,Zaghouan,11,6,2014,2025,4,1.8,0,36.3598,9.92,True,False,False
+172,Bizerte,11,6,2015,2026,9,1.8,4,37.2703,9.7763,True,True,True
+216,Bizerte,11,6,2017,2026,9,2.1,21,37.2158,9.6608,True,True,True
+52,Siliana,10,6,2012,2026,8,0.9,2,36.1099,9.3398,True,False,False
+76,El Kef,10,6,2012,2025,5,0.9,5,36.1829,8.6764,True,True,True
+92,Manouba,10,6,2012,2025,7,1.7,5,36.801,10.068,True,True,True
+166,Bizerte,10,6,2015,2026,8,2.1,11,37.0269,9.8165,True,True,True
+187,Mahdia,10,6,2012,2025,5,1.5,0,35.3215,10.6827,True,False,False
+205,Béja,10,6,2014,2026,9,1.8,22,36.7568,9.4956,True,True,True
+27,Bizerte,59,5,2012,2026,8,5.6,39,37.0232,9.2292,True,True,True
+190,Béja,58,5,2015,2026,7,5.9,24,37.0643,9.0579,True,True,True
+120,Bizerte,22,5,2014,2022,8,2.8,24,37.0481,9.4489,True,True,True
+129,Béja,22,5,2014,2026,6,3.2,8,36.3717,9.2107,True,True,True
+80,Béja,21,5,2012,2022,9,3.5,9,36.7372,9.5394,True,True,True
+8,Nabeul,19,5,2012,2026,6,1.6,2,36.4502,10.5911,True,False,False
+28,Béja,17,5,2012,2022,7,2.4,15,36.6537,9.7409,True,True,True
+0,Tataouine,14,5,2012,2019,1,1.0,0,31.2904,9.988,True,False,False
+54,Siliana,14,5,2012,2025,9,2.2,10,36.2604,9.15,True,True,True
+67,Béja,14,5,2012,2026,9,2.7,18,36.4035,9.1677,True,True,True
+142,Bizerte,14,5,2014,2026,9,2.7,16,37.0053,9.5393,True,True,True
+150,Gabès,14,5,2014,2022,1,0.8,2,33.8595,9.7967,True,False,False
+173,Bizerte,14,5,2012,2022,6,2.0,15,37.0382,10.0126,True,True,True
+6,Nabeul,13,5,2012,2023,8,1.7,8,36.7175,10.4858,True,True,True
+34,Béja,13,5,2012,2019,8,1.2,3,36.6306,9.6245,True,True,True
+33,Jendouba,12,5,2012,2026,8,2.2,7,36.4515,8.9238,True,True,True
+43,Jendouba,12,5,2012,2026,8,2.0,5,36.7866,8.711,True,True,True
+165,Bizerte,12,5,2012,2026,9,2.5,11,36.7479,9.4144,True,True,True
+113,Sfax,11,5,2014,2022,6,0.5,0,34.9678,10.8832,True,False,False
+154,Kébili,11,5,2015,2022,8,1.8,0,33.6961,8.9192,True,False,False
+183,Nabeul,11,5,2016,2025,6,1.9,7,36.9713,11.0396,True,True,True
+206,Bizerte,11,5,2013,2025,9,1.6,6,37.0416,9.3314,True,True,True
+230,Kébili,11,5,2021,2026,5,0.6,0,33.6732,8.9476,True,False,False
+69,Kasserine,10,5,2012,2026,9,1.7,0,35.2034,8.8424,True,False,False
+167,Tozeur,10,5,2013,2026,6,1.7,2,33.8476,7.9101,True,False,False
+228,Bizerte,10,5,2014,2023,8,2.4,14,37.0672,9.7326,True,True,True
+100,Zaghouan,163,4,2013,2021,8,11.6,62,36.1623,9.8467,False,True,False
+158,Kasserine,104,4,2015,2021,7,6.8,39,35.4635,9.0125,False,True,False
+194,Jendouba,74,4,2017,2024,8,6.8,32,36.7138,8.7755,False,True,False
+119,El Kef,72,4,2014,2023,8,6.8,25,36.2763,8.6769,False,True,False
+42,Siliana,36,4,2012,2023,7,5.6,35,36.4211,9.0372,False,True,False
+141,Jendouba,36,4,2014,2023,7,4.1,4,36.9506,8.8306,False,True,False
+121,Zaghouan,32,4,2014,2024,7,3.6,11,36.2148,9.938,False,True,False
+75,Bizerte,30,4,2012,2024,8,3.7,41,37.2241,9.504,False,True,False
+57,Siliana,26,4,2012,2017,8,3.6,4,36.3662,9.6591,False,True,False
+62,Siliana,26,4,2012,2026,8,3.4,37,36.4428,8.9944,False,True,False
+211,Ben Arous,21,4,2019,2026,10,1.1,1,36.6165,10.1994,False,False,False
+171,Bizerte,20,4,2015,2026,9,2.9,39,37.2541,9.5894,False,True,False
+203,Siliana,19,4,2015,2026,8,3.2,9,36.0971,9.6458,False,True,False
+209,Sidi Bouzid,19,4,2019,2024,3,2.7,0,34.6649,9.6657,False,False,False
+104,Béja,18,4,2012,2026,7,3.0,6,36.572,9.2248,False,True,False
+179,El Kef,18,4,2012,2016,8,3.3,14,36.2398,8.9399,False,True,False
+238,Gabès,17,4,2023,2026,6,1.5,0,34.1448,10.0099,False,False,False
+72,Bizerte,16,4,2012,2025,9,2.8,6,37.1803,9.5666,False,True,False
+99,Bizerte,16,4,2013,2026,8,2.6,10,36.943,9.5016,False,True,False
+218,Bizerte,16,4,2020,2026,8,3.1,31,37.1199,9.4623,False,True,False
+20,Béja,15,4,2012,2023,8,2.6,3,36.4708,9.0769,False,True,False
+123,outside,15,4,2013,2020,8,2.3,5,36.2674,8.3262,False,True,False
+215,Béja,15,4,2019,2026,9,2.2,8,36.7553,9.1311,False,True,False
+24,Béja,14,4,2012,2025,8,3.0,15,36.6819,9.2252,False,True,False
+63,Bizerte,14,4,2012,2022,9,2.1,21,37.2931,9.5594,False,True,False
+88,Sfax,14,4,2013,2026,2,2.2,0,34.8196,10.7116,False,False,False
+31,Ben Arous,13,4,2012,2026,9,2.5,4,36.737,10.2703,False,True,False
+11,Sfax,12,4,2012,2018,8,0.8,2,34.708,10.5277,False,False,False
+214,Jendouba,12,4,2014,2025,8,2.4,5,36.6716,8.9845,False,True,False
+18,Siliana,11,4,2012,2021,9,2.0,11,36.2925,9.164,False,True,False
+138,Jendouba,11,4,2012,2021,8,2.2,3,36.7463,8.6754,False,True,False
+181,Gafsa,11,4,2016,2025,8,1.6,3,34.6428,8.7726,False,True,False
+188,Bizerte,11,4,2012,2026,8,2.2,7,36.9199,9.686,False,True,False
+239,Bizerte,11,4,2012,2026,6,2.0,7,37.257,9.7248,False,True,False
+65,Bizerte,10,4,2012,2022,9,1.9,20,36.9126,9.622,False,True,False
+74,Béja,10,4,2012,2026,8,2.2,20,36.9592,9.1497,False,True,False
+97,Bizerte,10,4,2013,2024,7,2.0,57,37.2262,9.5309,False,True,False
+148,Béja,10,4,2012,2026,11,1.7,21,36.9402,9.1413,False,True,False
+170,Bizerte,10,4,2012,2025,9,1.6,9,37.1503,9.5607,False,True,False
+220,outside,10,4,2014,2026,8,1.8,13,36.5855,8.3479,False,True,False
+135,Zaghouan,81,3,2014,2023,8,5.9,28,36.2174,9.799,False,True,False
+50,Jendouba,73,3,2012,2023,7,5.7,28,36.9423,8.71,False,True,False
+163,Kasserine,49,3,2015,2020,7,5.8,6,35.4657,8.642,False,True,False
+3,Tataouine,44,3,2012,2014,4,0.8,0,31.5599,10.0167,False,False,False
+156,Zaghouan,40,3,2014,2017,8,5.0,21,36.1733,9.7417,False,True,False
+177,El Kef,32,3,2016,2026,7,4.1,16,36.281,8.7619,False,True,False
+117,El Kef,31,3,2014,2019,7,3.7,10,36.4079,8.6226,False,True,False
+19,outside,27,3,2012,2019,7,2.8,25,36.7924,8.4939,False,True,False
+146,Jendouba,27,3,2014,2023,8,3.0,6,36.8734,8.9862,False,True,False
+145,Béja,25,3,2014,2025,7,3.9,27,36.5515,9.1671,False,True,False
+175,Siliana,19,3,2013,2025,7,3.3,13,35.8959,9.4162,False,True,False
+182,Tataouine,19,3,2016,2024,10,1.8,3,31.0158,10.0726,False,True,False
+231,Béja,18,3,2015,2026,6,2.8,19,36.5733,9.6108,False,True,False
+128,Béja,17,3,2014,2025,8,3.3,19,36.6782,9.338,False,True,False
+159,Kairouan,17,3,2015,2023,7,2.4,8,35.9095,9.7703,False,True,False
+200,Siliana,17,3,2012,2024,8,3.6,19,36.1369,9.7137,False,True,False
+127,Zaghouan,16,3,2014,2024,8,2.6,9,36.1997,9.9693,False,True,False
+186,Sfax,16,3,2017,2023,4,1.6,3,34.7254,10.5165,False,True,False
+212,Manouba,15,3,2012,2021,7,2.2,5,36.8499,9.8063,False,True,False
+40,El Kef,12,3,2012,2026,8,2.1,7,36.1424,8.71,False,True,False
+229,Zaghouan,11,3,2021,2025,10,0.9,5,36.5522,10.0434,False,True,False
+16,Siliana,10,3,2012,2015,7,1.8,5,36.3747,9.6945,False,True,False
+47,Zaghouan,10,3,2012,2022,8,2.1,3,36.4979,9.9692,False,True,False
+155,Manouba,10,3,2015,2024,6,1.1,9,36.7487,10.011,False,True,False
+226,Jendouba,10,3,2017,2022,8,1.9,5,36.8165,8.7258,False,True,False
+130,Siliana,44,2,2014,2025,8,4.8,15,35.8672,9.3834,False,True,False
+14,Ben Arous,28,2,2012,2022,6,3.0,19,36.5267,10.1934,False,True,False
+153,El Kef,25,2,2014,2015,7,3.9,15,36.2297,8.5933,False,True,False
+122,Nabeul,24,2,2012,2014,8,2.9,21,36.5743,10.4308,False,True,False
+193,Jendouba,23,2,2012,2017,7,3.4,16,36.7533,8.6336,False,True,False
+162,Kasserine,20,2,2015,2021,7,2.5,8,35.4771,9.0562,False,True,False
+124,El Kef,19,2,2014,2019,8,3.0,4,36.1742,8.328,False,True,False
+136,Ben Arous,17,2,2013,2014,9,2.5,8,36.6117,10.3453,False,True,False
+195,Jendouba,17,2,2017,2019,8,2.2,3,36.8811,8.7285,False,True,False
+235,Nabeul,17,2,2013,2022,8,2.1,7,36.9512,10.8918,False,True,False
+133,Nabeul,16,2,2014,2016,9,2.9,10,36.6335,10.373,False,True,False
+95,Bizerte,15,2,2013,2020,8,1.8,11,36.9553,9.7616,False,True,False
+101,Zaghouan,14,2,2013,2026,8,1.8,4,36.1664,9.9349,False,True,False
+197,Jendouba,14,2,2017,2023,8,1.8,3,36.8676,8.8146,False,True,False
+210,Kébili,14,2,2019,2025,3,1.5,0,33.2933,8.6598,False,False,False
+213,Bizerte,14,2,2019,2021,8,1.4,10,37.1784,10.1589,False,True,False
+250,Jendouba,14,2,2015,2026,8,2.7,20,36.4657,8.9956,False,True,False
+222,Jendouba,13,2,2014,2021,7,2.3,2,36.6462,8.5949,False,False,False
+86,Tataouine,12,2,2013,2014,6,0.8,0,31.5855,10.0999,False,False,False
+247,El Kef,12,2,2014,2026,7,1.8,5,36.2069,8.3935,False,True,False
+253,Siliana,12,2,2025,2026,9,2.9,7,36.057,9.6866,False,True,False
+118,Ben Arous,11,2,2014,2016,7,2.2,11,36.5333,10.2511,False,True,False
+178,El Kef,11,2,2014,2016,8,1.9,20,36.3512,8.5048,False,True,False
+219,El Kef,11,2,2017,2020,8,2.2,5,36.2441,8.8069,False,True,False
+236,Jendouba,11,2,2022,2024,11,2.1,9,36.911,8.8036,False,True,False
+249,El Kef,11,2,2017,2026,7,2.1,11,36.2514,8.6256,False,True,False
+1,Sousse,10,2,2012,2020,5,1.1,8,36.1111,10.3827,False,True,False
+137,Siliana,10,2,2014,2015,9,1.9,10,36.3611,9.0893,False,True,False
+240,Nabeul,10,2,2019,2023,8,1.8,5,36.5296,10.7449,False,True,False
+245,outside,10,2,2021,2026,7,1.6,3,36.4222,8.3936,False,True,False
+192,Jendouba,7,2,2013,2017,7,1.3,16,36.7055,8.6265,False,True,False
+252,Siliana,74,1,2026,2026,8,6.2,34,36.0644,9.6392,False,True,False
+198,Kasserine,50,1,2017,2017,8,6.1,9,35.4685,8.5407,False,True,False
+224,Kairouan,41,1,2021,2021,8,3.4,16,35.9202,9.5499,False,True,False
+225,Kasserine,41,1,2021,2021,8,3.6,18,35.3295,9.1572,False,True,False
+196,Bizerte,40,1,2017,2017,8,4.6,31,37.0603,9.1606,False,True,False
+248,El Kef,37,1,2026,2026,7,3.7,16,36.3305,8.7619,False,True,False
+199,Bizerte,33,1,2017,2017,8,4.0,23,37.1657,9.2306,False,True,False
+185,Tataouine,30,1,2017,2017,5,0.6,0,31.5231,9.6895,False,False,False
+221,Kairouan,26,1,2021,2021,7,3.5,16,35.8837,9.7281,False,True,False
+201,Siliana,24,1,2017,2017,8,4.0,27,36.1585,9.7107,False,True,False
+227,Zaghouan,20,1,2021,2021,8,2.2,20,36.111,9.7956,False,True,False
+232,Béja,16,1,2022,2022,6,2.6,17,36.5919,9.6324,False,True,False
+234,Zaghouan,15,1,2022,2022,7,1.9,6,36.2556,9.7386,False,True,False
+233,Ben Arous,14,1,2022,2022,7,2.1,16,36.6765,10.3603,False,True,False
+251,Bizerte,14,1,2026,2026,8,2.9,5,37.0972,9.3121,False,True,False
+176,Siliana,13,1,2016,2016,7,2.4,11,35.9142,9.421,False,True,False
+254,Bizerte,13,1,2026,2026,10,2.0,5,37.0976,9.2516,False,True,False
+21,outside,12,1,2012,2012,7,1.9,10,35.1103,8.3569,False,True,False
+243,Manouba,12,1,2025,2025,6,1.8,3,36.8584,9.6586,False,True,False
+32,Béja,11,1,2012,2012,8,2.2,6,36.5211,9.5359,False,True,False
+152,Tataouine,11,1,2015,2015,5,0.5,0,31.6831,10.2066,False,False,False
+157,El Kef,11,1,2015,2015,7,1.6,5,36.2051,8.9296,False,True,False
+217,Tataouine,11,1,2019,2019,11,0.9,0,30.9067,9.8998,False,False,False
+237,Jendouba,11,1,2022,2022,11,1.6,8,36.9243,8.8189,False,True,False
+85,Tataouine,10,1,2013,2013,1,0.6,0,32.297,11.0082,False,False,False
+112,Béja,10,1,2014,2014,7,1.9,5,36.4741,9.4911,False,True,False
+184,Tataouine,10,1,2017,2017,2,1.7,2,32.0059,10.5705,False,False,False
+241,Bizerte,10,1,2023,2023,8,1.5,4,37.1818,9.4088,False,True,False
+242,Béja,10,1,2023,2023,10,2.3,27,36.4575,9.5617,False,True,False
+246,Béja,10,1,2026,2026,7,1.7,8,36.5421,9.2074,False,True,False
+202,Siliana,8,1,2017,2017,8,1.5,18,36.1722,9.6937,False,True,False
