@@ -1,0 +1,4 @@
+model,ROC_AUC,PR_AUC
+Month only (seasonal average),0.749,0.038
+Cell history only,0.758,0.047
+Random Forest (month + place + history),0.83,0.128
