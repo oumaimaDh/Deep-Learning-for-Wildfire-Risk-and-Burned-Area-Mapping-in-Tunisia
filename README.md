@@ -27,7 +27,11 @@ Active-fire detections for Tunisia from two NASA sensors: VIIRS S-NPP (375 m, Ja
 - **The two sensors agree closely.** Over the 13 full years covered by both (2013 to 2025), yearly detection counts have a rank correlation of 0.97, despite the different resolutions. Both rank 2021, 2017 and 2014 as the three most active years and 2018, 2024 and 2023 as the three quietest. With 13 years this is an indication, not proof.
 - **Fires are strongly seasonal.** June to September holds 83% of cleaned VIIRS detections and 89% of MODIS detections, with the peak in August.
 - **Almost half of the raw VIIRS archive is not wildfire.** 46% of archive detections are flagged as static land sources (gas flares, industrial heat), against 8% for MODIS, so cleaning was essential.
-- **Spatial pattern:** after removing fixed sources, the densest VIIRS clusters are in western Tunisia near the Algerian border, with elevated density across the northwest. Per-governorate counts and clustering are the next step. Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive heatmap.
+- **The northwest is the fire hot spot.** Jendouba, Béja and Bizerte, the governorates that contain the Kroumirie-Mogods region, cover roughly 7% of Tunisia's area but hold 41% of cleaned VIIRS detections and 51% of MODIS detections. They rank first to third in fire density (VIIRS detections per 100 km²: Bizerte 93, Béja 68, Jendouba 64). Kasserine and El Kef have more detections than Jendouba in absolute terms, but they are larger and less dense.
+- **Caveat for the south and east.** VIIRS records 8 to 19 times more detections than MODIS in Sfax, Gabès, Tataouine, Kébili and Gafsa, against 2 to 4 times in the north, so VIIRS counts there probably still include industrial or very small sources. A few small governorates around Tunis also show high density and need checking for non-wildfire burning. The northern results hold in both sensors.
+- Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive VIIRS heatmap. Its brightest clusters, in the west near the Algerian border, are still to be investigated.
+
+![Detections by governorate](outputs/governorate_stats.png)
 
 Per-sensor charts: [VIIRS per year](outputs/fires_per_year.png), [VIIRS seasonality](outputs/fires_per_month.png), [MODIS per year](outputs/modis_fires_per_year.png), [MODIS seasonality](outputs/modis_fires_per_month.png).
 
@@ -69,7 +73,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 - [x] Clean both datasets and remove fixed industrial sources
 - [x] Seasonality, yearly trends and density map
 - [x] Cross-check VIIRS against MODIS
-- [ ] Per-governorate statistics
+- [x] Per-governorate statistics
 - [ ] Spatial clustering of persistent hotspots (DBSCAN/HDBSCAN)
 
 **Phase 3: Drivers and baseline model**
@@ -98,6 +102,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 │   ├── explore_modis.py     # Merges the downloaded MODIS CSVs and prints summary statistics
 │   ├── analyze_modis.py     # Cleans the MODIS data and makes charts
 │   ├── compare_sensors.py   # Compares VIIRS and MODIS year by year and by season
+│   ├── governorate_stats.py # Counts detections per governorate and fire density
 │   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
 ├── data/                    # Downloaded data (not tracked by git)
 ├── outputs/                 # Generated charts and maps
@@ -140,6 +145,7 @@ python src/analyze_fires.py      # clean VIIRS, save charts and the density map 
 python src/explore_modis.py      # merge the MODIS CSVs, print summary statistics
 python src/analyze_modis.py      # clean MODIS, save charts to outputs/
 python src/compare_sensors.py    # compare the two sensors
+python src/governorate_stats.py  # detections and fire density per governorate
 ```
 
 Notes:
