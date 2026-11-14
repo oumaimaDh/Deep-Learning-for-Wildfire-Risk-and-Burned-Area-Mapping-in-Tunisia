@@ -65,7 +65,7 @@ The thresholds in step 4 are heuristics, chosen after inspecting the most-repeat
 - [x] Download historical VIIRS archive (2012 to 2026)
 - [x] Clean the data and remove fixed industrial sources
 - [x] Seasonality, yearly trends and density map
-- [ ] Download and clean the MODIS archive (2000 to 2025), requested
+- [ ] Download and clean the MODIS archive (2001 to 2026), requested
 - [ ] Per-governorate statistics
 - [ ] Spatial clustering of persistent hotspots (DBSCAN/HDBSCAN)
 
