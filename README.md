@@ -2,11 +2,11 @@
 
 An independent research project analyzing NASA Earth observation data to characterize wildfire patterns in Tunisia, model fire risk, and automatically map burned areas with deep learning.
 
-**Status:** In progress. Live fire map and historical VIIRS analysis are done; MODIS data, weather drivers and modeling come next. 🚧
+**Status:** In progress. The live fire map and the historical VIIRS and MODIS analysis are done; weather drivers and modeling come next. 🚧
 
 ## Goals
 
-1. Characterize wildfire patterns in Tunisia over two decades (NASA FIRMS: VIIRS from 2012, MODIS from 2000)
+1. Characterize wildfire patterns in Tunisia over two decades (NASA FIRMS: VIIRS from 2012, MODIS from 2001)
 2. Identify the climatic and vegetation drivers of fire risk (MERRA-2, NDVI)
 3. Build a Random Forest baseline for fire risk
 4. Train a PyTorch U-Net for burned-area segmentation, using MODIS MCD64A1 as reference labels, and compare it to the baseline (target Dice > 0.80)
@@ -20,34 +20,37 @@ Tunisia has little public research on wildfire patterns, while NASA provides fre
 
 ## Results so far (preliminary)
 
-VIIRS S-NPP (375 m) active-fire detections for Tunisia, January 2012 to November 2026: 57,879 raw detections.
+Active-fire detections for Tunisia from two NASA sensors: VIIRS S-NPP (375 m, January 2012 to November 2026) and MODIS Terra and Aqua (1 km, 2001 to 2026). After cleaning, 19,753 VIIRS and 6,437 MODIS vegetation-fire detections remain.
 
-![Vegetation fire detections per year](outputs/fires_per_year.png)
+![VIIRS vs MODIS comparison](outputs/sensor_comparison.png)
 
-![Seasonality of vegetation fire detections](outputs/fires_per_month.png)
+- **The two sensors agree closely.** Over the 13 full years covered by both (2013 to 2025), yearly detection counts have a rank correlation of 0.97, despite the different resolutions. Both rank 2021, 2017 and 2014 as the three most active years and 2018, 2024 and 2023 as the three quietest. With 13 years this is an indication, not proof.
+- **Fires are strongly seasonal.** June to September holds 83% of cleaned VIIRS detections and 89% of MODIS detections, with the peak in August.
+- **Almost half of the raw VIIRS archive is not wildfire.** 46% of archive detections are flagged as static land sources (gas flares, industrial heat), against 8% for MODIS, so cleaning was essential.
+- **Spatial pattern:** after removing fixed sources, the densest VIIRS clusters are in western Tunisia near the Algerian border, with elevated density across the northwest. Per-governorate counts and clustering are the next step. Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive heatmap.
 
-- **Almost half of the raw archive is not wildfire.** 46% of archive detections are flagged as static land sources (gas flares, industrial heat), so cleaning was essential before any analysis.
-- **Fires are strongly seasonal**, concentrated in the summer months with a peak in July and August.
-- **Spatial pattern:** after removing fixed sources, the densest clusters are in western Tunisia near the Algerian border, with elevated density across the northwest. Per-governorate counts and clustering are the next step. Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive heatmap.
+Per-sensor charts: [VIIRS per year](outputs/fires_per_year.png), [VIIRS seasonality](outputs/fires_per_month.png), [MODIS per year](outputs/modis_fires_per_year.png), [MODIS seasonality](outputs/modis_fires_per_month.png).
+
+![VIIRS detections per year](outputs/fires_per_year.png)
 
 ## Data cleaning
 
-Applied in `src/analyze_fires.py`:
+Applied in `src/analyze_fires.py` (VIIRS) and `src/analyze_modis.py` (MODIS):
 
 1. Keep only archive detections classified as presumed vegetation fires (type 0).
-2. Recent near-real-time detections have no type, so those that fall within about 500 m of a known static source are removed.
-3. Drop low-confidence detections.
-4. Remove persistent fixed sources the type flag missed: any ~500 m grid cell active in 6 or more different calendar months, or with 40 or more detections, plus its neighbouring cells. Removed detections are saved for inspection.
+2. Recent near-real-time detections have no type, so those that fall within one grid cell of a known static source are removed.
+3. Drop low-confidence detections (VIIRS: letter `l`; MODIS: confidence below 30).
+4. Remove persistent fixed sources the type flag missed: any grid cell active in 6 or more different calendar months, or with too many detections (VIIRS: 40 per ~500 m cell; MODIS: 20 per ~1 km cell), plus its neighbouring cells. Removed detections are saved for inspection.
 
-Result: 57,879 raw detections reduced to 19,753 cleaned vegetation-fire detections.
+Sanity check on step 4: the removed detections are mostly night-time and spread across the year (VIIRS: 91% night; MODIS: 97% night), while the kept detections are mostly daytime and concentrated in summer (June to September: VIIRS 83%, MODIS 89%), as expected for wildfires.
 
-The thresholds in step 4 are heuristics, chosen after inspecting the most-repeated cells (`src/check_hotspots.py`), and will be revisited.
+Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,437. The thresholds in step 4 are heuristics, chosen after inspecting the most-repeated cells (`src/check_hotspots.py`), and will be revisited. MODIS counts for 2001 and 2002 are lower partly because Aqua only launched in mid-2002.
 
 ## Data sources
 
 | Source | Used for |
 |---|---|
-| [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/) (VIIRS 2012+, MODIS 2000+) | Active fire detections |
+| [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/) (VIIRS 2012+, MODIS 2001+) | Active fire detections |
 | MODIS MCD64A1 | Monthly burned-area product, used as segmentation labels |
 | MERRA-2 | Meteorological reanalysis (temperature, humidity, wind, rainfall) |
 | [Copernicus Data Space](https://dataspace.copernicus.eu/) (Sentinel-2) | NDVI and before/after imagery |
@@ -62,10 +65,10 @@ The thresholds in step 4 are heuristics, chosen after inspecting the most-repeat
 - [x] Single fetch-and-plot pipeline (`src/live_map.py`)
 
 **Phase 2: Historical data and exploration**
-- [x] Download historical VIIRS archive (2012 to 2026)
-- [x] Clean the data and remove fixed industrial sources
+- [x] Download historical VIIRS (2012 to 2026) and MODIS (2001 to 2026) archives
+- [x] Clean both datasets and remove fixed industrial sources
 - [x] Seasonality, yearly trends and density map
-- [ ] Download and clean the MODIS archive (2001 to 2026), requested
+- [x] Cross-check VIIRS against MODIS
 - [ ] Per-governorate statistics
 - [ ] Spatial clustering of persistent hotspots (DBSCAN/HDBSCAN)
 
@@ -91,7 +94,10 @@ The thresholds in step 4 are heuristics, chosen after inspecting the most-repeat
 │   ├── live_map.py          # Fetches recent VIIRS detections and builds the live map
 │   ├── boundaries.py        # Downloads Tunisia governorate boundaries
 │   ├── explore_history.py   # Merges the downloaded VIIRS CSVs and prints summary statistics
-│   ├── analyze_fires.py     # Cleans the data, makes the charts and the density map
+│   ├── analyze_fires.py     # Cleans the VIIRS data, makes charts and the density map
+│   ├── explore_modis.py     # Merges the downloaded MODIS CSVs and prints summary statistics
+│   ├── analyze_modis.py     # Cleans the MODIS data and makes charts
+│   ├── compare_sensors.py   # Compares VIIRS and MODIS year by year and by season
 │   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
 ├── data/                    # Downloaded data (not tracked by git)
 ├── outputs/                 # Generated charts and maps
@@ -126,11 +132,14 @@ python src/boundaries.py    # one-time: downloads governorate boundaries
 python src/live_map.py      # saves outputs/tunisia_fires_live.html
 ```
 
-Historical analysis: request Tunisia's VIIRS archive from the [FIRMS download page](https://firms.modaps.eosdis.nasa.gov/download/), unzip the CSV files into `data/viirs_raw/`, then run:
+Historical analysis: request Tunisia's VIIRS S-NPP and MODIS archives (CSV) from the [FIRMS download page](https://firms.modaps.eosdis.nasa.gov/download/). Unzip the VIIRS files into `data/viirs_raw/` and the MODIS files into `data/modis_raw/`, then run:
 
 ```powershell
-python src/explore_history.py    # merge the CSVs, print summary statistics
-python src/analyze_fires.py      # clean the data, save charts and the density map to outputs/
+python src/explore_history.py    # merge the VIIRS CSVs, print summary statistics
+python src/analyze_fires.py      # clean VIIRS, save charts and the density map to outputs/
+python src/explore_modis.py      # merge the MODIS CSVs, print summary statistics
+python src/analyze_modis.py      # clean MODIS, save charts to outputs/
+python src/compare_sensors.py    # compare the two sensors
 ```
 
 Notes:
