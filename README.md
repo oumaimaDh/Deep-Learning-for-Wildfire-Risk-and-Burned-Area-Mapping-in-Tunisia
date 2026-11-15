@@ -2,7 +2,7 @@
 
 An independent research project analyzing NASA Earth observation data to characterize wildfire patterns in Tunisia, model fire risk, and automatically map burned areas with deep learning.
 
-**Status:** In progress. The live fire map and the historical VIIRS and MODIS analysis are done; weather drivers and modeling come next. 🚧
+**Status:** In progress. The live fire map, the historical VIIRS and MODIS analysis, and the first fire-risk models (with and without weather) are done; burned-area segmentation comes next. 🚧
 
 ## Goals
 
@@ -31,6 +31,8 @@ Active-fire detections for Tunisia from two NASA sensors: VIIRS S-NPP (375 m, Ja
 - **Caveat for the south and east.** VIIRS records 8 to 19 times more detections than MODIS in Sfax, Gabès, Tataouine, Kébili and Gafsa, against 2 to 4 times in the north, so VIIRS counts there probably still include industrial or very small sources. A few small governorates around Tunis also show high density and need checking for non-wildfire burning. The northern results hold in both sensors.
 - **Fires keep returning to the same places.** DBSCAN clustering of the cleaned VIIRS detections (1 km distance, at least 10 detections) finds 255 clusters. 128 are persistent, meaning active in 5 or more different years. 102 of those are also seen by MODIS (3 or more MODIS detections nearby) and hold 73% of all clustered detections. Bizerte (41 clusters), Béja (25) and Jendouba (8) host 74 of these 102 (73%). The most persistent clusters in Bizerte and Béja were active in 14 to 15 of the 15 years from 2012 to 2026.
 - **Caveats on the clusters.** Persistence cannot tell forest fires from agricultural burning of the same fields, so land-cover data is needed to separate them. 26 persistent clusters (412 detections) are seen by VIIRS only and are set aside: they are small and lie mostly around Greater Tunis, the east coast and the south, so they are probably not forest fires. The settings were chosen by hand, and the largest cluster (El Kef, 31 km across) probably merges several fire areas, so it will be refined (smaller distance or HDBSCAN).
+- **A simple Random Forest already predicts fire risk well.** For each 5 km cell and month in the 12 northern governorates (2012 to 2025), the model predicts whether VIIRS detects a fire, using season, location and fire history from earlier years only. Trained on 2012 to 2021 and tested on 2022 to 2025, it reaches ROC-AUC 0.83 and PR-AUC 0.13, against 0.75 / 0.04 for a seasonal average and 0.76 / 0.05 for cell history alone (random guessing: PR-AUC 0.017).
+- **Weather adds little on top of fire history.** Adding MERRA-2 temperature, humidity, wind, rain, soil wetness and vegetation (LAI) raises ROC-AUC from 0.829 to 0.848 but leaves PR-AUC unchanged (0.126 vs 0.124, mean of 3 seeds). Weather alone is informative (PR-AUC 0.067, better than the seasonal average) but largely overlaps with what location and history already capture. MERRA-2 cells are about 50 km wide, so they cannot describe local conditions; finer data (NDVI, terrain) is next.
 - Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive VIIRS heatmap. Its brightest clusters, in the west near the Algerian border, are still to be investigated.
 
 ![Detections by governorate](outputs/governorate_stats.png)
@@ -81,9 +83,11 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 - [x] Spatial clustering of persistent hotspots (DBSCAN; HDBSCAN refinement possible)
 
 **Phase 3: Drivers and baseline model**
-- [ ] Download MERRA-2 weather variables and compute NDVI
-- [ ] Add terrain and distance-to-road/settlement features
-- [ ] Random Forest fire-risk baseline with time-aware and spatial validation
+- [x] Download MERRA-2 weather variables (`src/fetch_merra2.py`)
+- [x] Random Forest fire-risk baseline with a time-based split (`src/train_baseline.py`)
+- [x] Add MERRA-2 weather features and compare (`src/train_weather.py`)
+- [ ] Compute NDVI, add terrain and distance-to-road/settlement features
+- [ ] Spatial cross-validation
 
 **Phase 4: Burned-area segmentation**
 - [ ] Prepare MCD64A1 burned-area labels
@@ -108,6 +112,9 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 │   ├── compare_sensors.py   # Compares VIIRS and MODIS year by year and by season
 │   ├── governorate_stats.py # Counts detections per governorate and fire density
 │   ├── find_hotspots.py     # Clusters detections (DBSCAN) to find persistent hotspots
+│   ├── fetch_merra2.py      # Downloads monthly MERRA-2 weather for Tunisia (needs an Earthdata login)
+│   ├── train_baseline.py    # Random Forest fire-risk baseline (season, place, history)
+│   ├── train_weather.py     # Adds MERRA-2 weather features and compares models
 │   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
 ├── data/                    # Downloaded data (not tracked by git)
 ├── outputs/                 # Generated charts and maps
@@ -152,6 +159,15 @@ python src/analyze_modis.py      # clean MODIS, save charts to outputs/
 python src/compare_sensors.py    # compare the two sensors
 python src/governorate_stats.py  # detections and fire density per governorate
 python src/find_hotspots.py      # persistent hotspot clusters (needs scikit-learn)
+python src/train_baseline.py     # Random Forest fire-risk baseline
+```
+
+Weather features need a free [NASA Earthdata](https://urs.earthdata.nasa.gov/) account (accept the GES DISC data archive agreement), then:
+
+```powershell
+pip install earthaccess pydap xarray netCDF4
+python src/fetch_merra2.py       # saves data/merra2_tunisia_monthly.csv
+python src/train_weather.py      # compares models with and without weather
 ```
 
 Notes:
