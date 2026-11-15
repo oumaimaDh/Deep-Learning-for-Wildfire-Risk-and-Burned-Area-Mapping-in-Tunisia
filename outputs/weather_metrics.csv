@@ -1,0 +1,4 @@
+model,ROC_AUC,PR_AUC,PR_AUC_std
+Baseline (month + place + fire history),0.829,0.126,0.002
+"Weather only (month + weather, no place or history)",0.804,0.067,0.0
+Baseline + weather,0.848,0.124,0.002
