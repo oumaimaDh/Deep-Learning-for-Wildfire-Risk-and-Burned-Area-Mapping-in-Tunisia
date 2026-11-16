@@ -1,0 +1,5 @@
+model,ROC_AUC,PR_AUC,PR_AUC_std
+Baseline (month + place + history),0.787,0.138,0.001
+Baseline + weather,0.799,0.138,0.003
+Baseline + weather + vegetation,0.802,0.142,0.003
+Baseline + vegetation,0.8,0.15,0.001
