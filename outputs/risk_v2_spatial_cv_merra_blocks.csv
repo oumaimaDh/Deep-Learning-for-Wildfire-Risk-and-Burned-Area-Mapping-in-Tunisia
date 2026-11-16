@@ -1,0 +1,5 @@
+model,ROC_AUC,PR_AUC,PR_AUC_std_over_folds
+Season only,0.665,0.059,0.029
+Season + weather,0.701,0.073,0.034
+Season + weather + vegetation,0.757,0.103,0.03
+Season + vegetation,0.73,0.096,0.044
