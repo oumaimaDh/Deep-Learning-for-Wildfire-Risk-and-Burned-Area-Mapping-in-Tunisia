@@ -2,7 +2,7 @@
 
 An independent research project analyzing NASA Earth observation data to characterize wildfire patterns in Tunisia, model fire risk, and automatically map burned areas with deep learning.
 
-**Status:** In progress. The live fire map, the historical VIIRS and MODIS analysis, the fire-risk models (weather, vegetation, spatial validation) and a first U-Net for burned-area mapping are done. Terrain features, a Sentinel-2 burn-severity case study and the final report are still to do. 🚧
+**Status:** In progress. The live fire map, the historical VIIRS and MODIS analysis, the fire-risk models (weather, vegetation, spatial validation) and a first U-Net for burned-area mapping are done. A Sentinel-2 burn-severity case study and the final report are still to do. 🚧
 
 ## Goals
 
@@ -34,7 +34,7 @@ Active-fire detections for Tunisia from two NASA sensors: VIIRS S-NPP (375 m, Ja
 - **A simple Random Forest already predicts fire risk well.** For each 5 km cell and month in the 12 northern governorates (2012 to 2025), the model predicts whether VIIRS detects a fire, using season, location and fire history from earlier years only. Trained on 2012 to 2021 and tested on 2022 to 2025, it reaches ROC-AUC 0.83 and PR-AUC 0.13, against 0.75 / 0.04 for a seasonal average and 0.76 / 0.05 for cell history alone (random guessing: PR-AUC 0.017).
 - **Weather adds little on top of fire history.** Adding MERRA-2 temperature, humidity, wind, rain, soil wetness and vegetation (LAI) raises ROC-AUC from 0.829 to 0.848 but leaves PR-AUC unchanged (0.126 vs 0.124, mean of 3 seeds). Weather alone is informative (PR-AUC 0.067, better than the seasonal average) but largely overlaps with what location and history already capture. MERRA-2 cells are about 50 km wide, so they cannot describe local conditions; finer data (NDVI, terrain) is next.
 - **An independent check on the cleaning.** The MODIS burned-area product (MCD64A1, June to October, northern Tunisia) ranks 2017 (672 km²), 2021 (529 km²) and 2022 (415 km²) as the biggest burn years and 2018 (13 km²) and 2024 (14 km²) as the smallest, in line with the VIIRS ranking above.
-- **Vegetation helps most at places the model has never seen.** Adding MODIS vegetation features (NDVI and shortwave infrared from the composite that ended before each month) to the risk model changes little where fire history is known (PR-AUC 0.138 to 0.150 on 2022 to 2025, a small gain on only four test years). The clearer effect is in spatial cross-validation, where whole MERRA-2 cells are held out and the model gets no coordinates or fire history: PR-AUC is 0.059 for season only, 0.073 with weather, 0.096 with vegetation and 0.103 with both (random guessing: 0.037), with a spread of 0.03 to 0.04 across folds. An earlier test with smaller blocks showed a larger weather gain (0.122), which shrank once no weather cell was shared between training and test, so weather partly acted as a location code there. Months covered: June to November.
+- **Vegetation helps most at places the model has never seen.** Adding MODIS vegetation features (NDVI and shortwave infrared from the composite that ended before each month) to the risk model changes little where fire history is known (PR-AUC 0.138 to 0.150 on 2022 to 2025, a small gain on only four test years). The clearer effect is in spatial cross-validation, where whole MERRA-2 cells are held out and the model gets no coordinates or fire history: PR-AUC is 0.059 for season only, 0.073 with weather, 0.096 with vegetation and 0.103 with both (random guessing: 0.037), with a spread of 0.03 to 0.04 across folds. Adding terrain (SRTM elevation, slope, south-facing ground) gives 0.105 with vegetation and 0.106 with everything, a gain well within that spread. An earlier test with smaller blocks showed a larger weather gain (0.122), which shrank once no weather cell was shared between training and test, so weather partly acted as a location code there. Months covered: June to November.
 - Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive VIIRS heatmap. Its brightest clusters, in the west near the Algerian border, are still to be investigated.
 
 ![Detections by governorate](outputs/governorate_stats.png)
@@ -80,6 +80,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 |---|---|
 | [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/) (VIIRS 2012+, MODIS 2001+) | Active fire detections |
 | MODIS MCD64A1 | Monthly burned-area product, used as segmentation labels |
+| SRTM (3 arc-second) | Elevation, slope and aspect features |
 | MODIS MOD13A1 | 16-day 500 m reflectance and NDVI, used as U-Net input and risk-model vegetation features |
 | MERRA-2 | Meteorological reanalysis (temperature, humidity, wind, rainfall) |
 | [Copernicus Data Space](https://dataspace.copernicus.eu/) (Sentinel-2) | NDVI and before/after imagery |
@@ -107,7 +108,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 - [x] Add MERRA-2 weather features and compare (`src/train_weather.py`)
 - [x] Vegetation features (MODIS NDVI and shortwave infrared) in the risk model (`src/train_risk_v2.py`)
 - [x] Spatial cross-validation on unseen places
-- [ ] Add terrain and distance-to-road/settlement features
+- [x] Terrain features from SRTM (`src/fetch_terrain.py`): small gain, within the spread across folds
 
 **Phase 4: Burned-area segmentation**
 - [x] Prepare MCD64A1 burned-area labels (`src/fetch_mcd64a1.py`)
@@ -137,6 +138,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 │   ├── train_weather.py     # Adds MERRA-2 weather features and compares models
 │   ├── fetch_mcd64a1.py     # Downloads MODIS burned-area tiles and crops northern Tunisia
 │   ├── fetch_mod13a1.py     # Downloads MODIS 16-day reflectance and NDVI composites
+│   ├── fetch_terrain.py     # Downloads SRTM elevation and summarises it on a 1 km grid
 │   ├── train_risk_v2.py     # Risk model with vegetation features and spatial cross-validation
 │   ├── train_unet.py        # U-Net burned-area segmentation vs Random Forest and dNBR
 │   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
@@ -199,6 +201,7 @@ Burned-area segmentation (same Earthdata login; downloads about 70 and 84 files,
 ```powershell
 python src/fetch_mcd64a1.py      # burned-area labels
 python src/fetch_mod13a1.py      # input images and vegetation features
+python src/fetch_terrain.py      # elevation, slope, aspect (about 60 MB)
 python src/train_risk_v2.py      # vegetation features and spatial cross-validation
 python src/train_unet.py         # about 25 minutes on a laptop CPU
 ```

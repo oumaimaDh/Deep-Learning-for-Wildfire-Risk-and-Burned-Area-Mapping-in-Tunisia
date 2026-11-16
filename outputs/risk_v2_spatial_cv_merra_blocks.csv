@@ -3,3 +3,5 @@ Season only,0.665,0.059,0.029
 Season + weather,0.701,0.073,0.034
 Season + weather + vegetation,0.757,0.103,0.03
 Season + vegetation,0.73,0.096,0.044
+Season + vegetation + terrain,0.743,0.105,0.031
+Season + weather + vegetation + terrain,0.763,0.106,0.027

@@ -39,6 +39,8 @@ SEEDS = [0, 1, 2]
 BASE = ["month_sin", "month_cos", "lat", "lon", "hist_years_cell", "hist_same_month", "hist_neighbours"]
 WEATHER = ["temp_c", "humidity", "wind", "rain_mm_day", "rain_prev3m", "soil_root", "soil_top", "lai", "temp_anom", "soil_anom"]
 VEG = ["ndvi_pre", "ndvi_anom", "mir_pre", "nbr_pre"]
+TERRAIN = ["elev", "relief", "slope", "southness"]      # used when data/terrain_1km.npz exists (src/fetch_terrain.py)
+TERRAIN_FILE = "data/terrain_1km.npz"
 os.makedirs("outputs", exist_ok=True)
 
 # ---- 1. Region, grid, fire table (same as train_weather.py) --------------------------------
@@ -170,6 +172,36 @@ table["ndvi_anom"] = (ndvi_a - ndvi_clim).ravel()
 table["mir_pre"] = mir_a.ravel()
 table["nbr_pre"] = nbr_a.ravel()
 
+# ---- 3b. Terrain features (optional): average the 1 km blocks inside every 5 km cell --------
+use_terrain = os.path.exists(TERRAIN_FILE)
+if use_terrain:
+    t = np.load(TERRAIN_FILE)
+    step = float(t["step"])
+    nr, nc = t["elev"].shape
+    tlon, tlat = np.meshgrid(float(t["lon_left"]) + (np.arange(nc) + 0.5) * step,
+                             float(t["lat_top"]) - (np.arange(nr) + 0.5) * step)
+    tix, tiy = np.floor((tlon - lon0) / CELL).astype(int), np.floor((tlat - lat0) / CELL).astype(int)
+    tin = (tix >= 0) & (tix < nx) & (tiy >= 0) & (tiy < ny)
+    tflat = np.where(tin, tiy * nx + tix, 0)
+
+    def tcell(a):
+        m = tin & np.isfinite(a)
+        num = np.bincount(tflat[m], weights=a[m], minlength=nx * ny)
+        cnt = np.bincount(tflat[m], minlength=nx * ny)
+        with np.errstate(invalid="ignore", divide="ignore"):
+            return np.where(cnt >= 3, num / cnt, np.nan)[sel_flat]
+
+    elev = tcell(t["elev"])
+    terrain = {"elev": elev,
+               "relief": np.sqrt(np.maximum(tcell(t["elev_sq"]) - elev ** 2, 0)),   # spread of elevation inside the cell
+               "slope": tcell(t["slope"]),
+               "southness": tcell(t["dz_north"]) / np.maximum(tcell(t["grad"]), 1e-6)}  # +1 = faces south (hotter, drier)
+    for k, arr in terrain.items():
+        table[k] = np.broadcast_to(np.nan_to_num(arr, nan=float(np.nanmedian(arr)))[:, None, None], shape).ravel()
+    print(f"Terrain added: elevation {np.nanmin(elev):.0f} to {np.nanmax(elev):.0f} m")
+else:
+    print("No terrain file found, skipping terrain features (run src/fetch_terrain.py)")
+
 table = table[table["month"].isin(MONTHS)].dropna(subset=VEG).reset_index(drop=True)
 train, test = table[table["year"] <= TRAIN_END], table[table["year"] > TRAIN_END]
 print(f"Rows (June-November, with vegetation data): {len(table):,} | train {len(train):,} ({train['fire'].mean():.1%} fire) "
@@ -188,23 +220,34 @@ time_sets = {
     "Baseline + weather + vegetation": BASE + WEATHER + VEG,
     "Baseline + vegetation": BASE + VEG,
 }
-rows, last = [], None
-for name, feats in time_sets.items():
-    roc, pr = [], []
-    for s in SEEDS:
-        m = rf(s).fit(train[feats], train["fire"])
-        p = m.predict_proba(test[feats])[:, 1]
-        roc.append(roc_auc_score(test["fire"], p)); pr.append(average_precision_score(test["fire"], p))
-    rows.append({"model": name, "ROC_AUC": np.mean(roc), "PR_AUC": np.mean(pr), "PR_AUC_std": np.std(pr)})
-    print(f"[time split {TRAIN_END + 1}-{LAST_YEAR}] {name}: ROC {np.mean(roc):.3f}  PR {np.mean(pr):.3f} (+/- {np.std(pr):.3f})")
-    if name == "Baseline + weather + vegetation":
-        last = m
-pd.DataFrame(rows).round(3).to_csv(OUT_TIME, index=False)
-print(f"Random guessing: PR_AUC {test['fire'].mean():.3f}\n")
+if use_terrain:
+    time_sets["Baseline + vegetation + terrain"] = BASE + VEG + TERRAIN
+    time_sets["Baseline + weather + vegetation + terrain"] = BASE + WEATHER + VEG + TERRAIN
+last = None
+if not os.environ.get("SPATIAL_ONLY"):   # SPATIAL_ONLY=1 skips the time-split part
+    rows = []
+    for name, feats in time_sets.items():
+        roc, pr = [], []
+        for s in SEEDS:
+            m = rf(s).fit(train[feats], train["fire"])
+            p = m.predict_proba(test[feats])[:, 1]
+            roc.append(roc_auc_score(test["fire"], p)); pr.append(average_precision_score(test["fire"], p))
+        rows.append({"model": name, "ROC_AUC": np.mean(roc), "PR_AUC": np.mean(pr), "PR_AUC_std": np.std(pr)})
+        print(f"[time split {TRAIN_END + 1}-{LAST_YEAR}] {name}: ROC {np.mean(roc):.3f}  PR {np.mean(pr):.3f} (+/- {np.std(pr):.3f})")
+        if name == "Baseline + weather + vegetation":
+            last = m
+    pd.DataFrame(rows).round(3).to_csv(OUT_TIME, index=False)
+    print(f"Random guessing: PR_AUC {test['fire'].mean():.3f}\n")
+
 
 # ---- 5. Spatial cross-validation: predict places the model has never seen ---------------------
 # No coordinates and no fire history, so the model must rely on season, weather and vegetation alone.
-table["block"] = (np.floor(table["lat"] / BLOCK_DEG) * 1000 + np.floor(table["lon"] / BLOCK_DEG)).astype(int)
+if os.environ.get("BLOCKS") == "merra":
+    # stricter: one block per MERRA-2 grid cell, so no weather cell is shared between training and test places
+    table["block"] = pd.factorize(table["m_lat"].astype(str) + "_" + table["m_lon"].astype(str))[0]
+    OUT_SPATIAL = OUT_SPATIAL.replace(".csv", "_merra_blocks.csv")
+else:
+    table["block"] = (np.floor(table["lat"] / BLOCK_DEG) * 1000 + np.floor(table["lon"] / BLOCK_DEG)).astype(int)
 n_blocks = table["block"].nunique()
 spatial_sets = {
     "Season only": ["month_sin", "month_cos"],
@@ -212,6 +255,9 @@ spatial_sets = {
     "Season + weather + vegetation": ["month_sin", "month_cos"] + WEATHER + VEG,
     "Season + vegetation": ["month_sin", "month_cos"] + VEG,
 }
+if use_terrain:
+    spatial_sets["Season + vegetation + terrain"] = ["month_sin", "month_cos"] + VEG + TERRAIN
+    spatial_sets["Season + weather + vegetation + terrain"] = ["month_sin", "month_cos"] + WEATHER + VEG + TERRAIN
 gkf = GroupKFold(n_splits=5)
 rows = []
 for name, feats in spatial_sets.items():
@@ -228,13 +274,14 @@ pd.DataFrame(rows).round(3).to_csv(OUT_SPATIAL, index=False)
 print(f"Random guessing: PR_AUC {table['fire'].mean():.3f}\n")
 
 # ---- 6. Importance ------------------------------------------------------------------------
-cols = BASE + WEATHER + VEG
-imp = pd.Series(last.feature_importances_, index=cols).sort_values()
-fig, ax = plt.subplots(figsize=(7, 6))
-ax.barh(imp.index, imp.values, color=["#1b7837" if i in VEG else "#2166ac" if i in WEATHER else "#b2182b" for i in imp.index])
-ax.set_xlabel("Feature importance")
-ax.set_title("Baseline + weather + vegetation\n(green = vegetation, blue = weather, red = place/history)")
-fig.tight_layout(); fig.savefig(OUT_IMP, dpi=150); plt.close(fig)
-print("Feature importance (top 10):")
-print(imp.sort_values(ascending=False).head(10).round(3).to_string())
-print(f"\nSaved: {OUT_TIME}, {OUT_SPATIAL}, {OUT_IMP}")
+if last is not None:
+    cols = BASE + WEATHER + VEG
+    imp = pd.Series(last.feature_importances_, index=cols).sort_values()
+    fig, ax = plt.subplots(figsize=(7, 6))
+    ax.barh(imp.index, imp.values, color=["#1b7837" if i in VEG else "#2166ac" if i in WEATHER else "#b2182b" for i in imp.index])
+    ax.set_xlabel("Feature importance")
+    ax.set_title("Baseline + weather + vegetation\n(green = vegetation, blue = weather, red = place/history)")
+    fig.tight_layout(); fig.savefig(OUT_IMP, dpi=150); plt.close(fig)
+    print("Feature importance (top 10):")
+    print(imp.sort_values(ascending=False).head(10).round(3).to_string())
+    print(f"\nSaved: {OUT_TIME}, {OUT_SPATIAL}, {OUT_IMP}")
