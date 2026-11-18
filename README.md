@@ -4,6 +4,18 @@ An independent research project analyzing NASA Earth observation data to charact
 
 **Status:** In progress. The live fire map, the historical VIIRS and MODIS analysis, the fire-risk models (weather, vegetation, spatial validation) and a first U-Net for burned-area mapping are done. A Sentinel-2 burn-severity case study and the final report are still to do. 🚧
 
+## Headline results
+
+| What | Result |
+|---|---|
+| Raw VIIRS detections removed as likely non-wildfire (gas flares, industry, low confidence) | 66% (57,879 reduced to 19,753) |
+| Agreement between VIIRS and MODIS on yearly fire counts | 0.97 rank correlation over 13 years |
+| Persistent, MODIS-confirmed fire hotspots | 102, of which 73% are in Bizerte, Béja and Jendouba |
+| Fire-risk model on unseen years (PR-AUC) | 0.13, against 0.04 for a seasonal average |
+| U-Net burned-area map on unseen years, Tunisia only (Dice) | 0.15, against 0.05 for a Random Forest and 0.03 for a dNBR threshold; small Tunisian fires are hard at 500 m (target 0.80 not reached) |
+
+Details, caveats and charts are below.
+
 ## Goals
 
 1. Characterize wildfire patterns in Tunisia over two decades (NASA FIRMS: VIIRS from 2012, MODIS from 2001)
@@ -33,7 +45,6 @@ Active-fire detections for Tunisia from two NASA sensors: VIIRS S-NPP (375 m, Ja
 - **Caveats on the clusters.** Persistence cannot tell forest fires from agricultural burning of the same fields, so land-cover data is needed to separate them. 26 persistent clusters (412 detections) are seen by VIIRS only and are set aside: they are small and lie mostly around Greater Tunis, the east coast and the south, so they are probably not forest fires. The settings were chosen by hand, and the largest cluster (El Kef, 31 km across) probably merges several fire areas, so it will be refined (smaller distance or HDBSCAN).
 - **A simple Random Forest already predicts fire risk well.** For each 5 km cell and month in the 12 northern governorates (2012 to 2025), the model predicts whether VIIRS detects a fire, using season, location and fire history from earlier years only. Trained on 2012 to 2021 and tested on 2022 to 2025, it reaches ROC-AUC 0.83 and PR-AUC 0.13, against 0.75 / 0.04 for a seasonal average and 0.76 / 0.05 for cell history alone (random guessing: PR-AUC 0.017).
 - **Weather adds little on top of fire history.** Adding MERRA-2 temperature, humidity, wind, rain, soil wetness and vegetation (LAI) raises ROC-AUC from 0.829 to 0.848 but leaves PR-AUC unchanged (0.126 vs 0.124, mean of 3 seeds). Weather alone is informative (PR-AUC 0.067, better than the seasonal average) but largely overlaps with what location and history already capture. MERRA-2 cells are about 50 km wide, so they cannot describe local conditions; finer data (NDVI, terrain) is next.
-- **An independent check on the cleaning.** The MODIS burned-area product (MCD64A1, June to October, northern Tunisia) ranks 2017 (672 km²), 2021 (529 km²) and 2022 (415 km²) as the biggest burn years and 2018 (13 km²) and 2024 (14 km²) as the smallest, in line with the VIIRS ranking above.
 - **Vegetation helps most at places the model has never seen.** Adding MODIS vegetation features (NDVI and shortwave infrared from the composite that ended before each month) to the risk model changes little where fire history is known (PR-AUC 0.138 to 0.150 on 2022 to 2025, a small gain on only four test years). The clearer effect is in spatial cross-validation, where whole MERRA-2 cells are held out and the model gets no coordinates or fire history: PR-AUC is 0.059 for season only, 0.073 with weather, 0.096 with vegetation and 0.103 with both (random guessing: 0.037), with a spread of 0.03 to 0.04 across folds. Adding terrain (SRTM elevation, slope, south-facing ground) gives 0.105 with vegetation and 0.106 with everything, a gain well within that spread. An earlier test with smaller blocks showed a larger weather gain (0.122), which shrank once no weather cell was shared between training and test, so weather partly acted as a location code there. Months covered: June to November.
 - Download `outputs/tunisia_fire_density.html` and open it in a browser for the interactive VIIRS heatmap. Its brightest clusters, in the west near the Algerian border, are still to be investigated.
 
@@ -47,19 +58,17 @@ Per-sensor charts: [VIIRS per year](outputs/fires_per_year.png), [VIIRS seasonal
 
 ## Burned-area segmentation (preliminary)
 
-A small PyTorch U-Net maps burned pixels from two MODIS MOD13A1 composites 32 days apart (red, near-infrared, shortwave infrared, NDVI, and their change), using MCD64A1 burned pixels as reference labels. It is trained on 2012 to 2020, thresholds are chosen on 2021, and it is tested on 2022 to 2025.
+A small PyTorch U-Net maps burned pixels from two MODIS MOD13A1 composites 32 days apart (red, near-infrared, shortwave infrared, NDVI, and their change), using MCD64A1 burned pixels as reference labels. It is trained on 2012 to 2020 (the crop box also contains a strip of Algeria), thresholds are chosen on 2021, and it is scored on 2022 to 2025 **inside Tunisia only**.
 
-| Model (test 2022 to 2025) | Dice | IoU | Precision | Recall |
+| Model (test 2022 to 2025, Tunisia) | Dice | IoU | Precision | Recall |
 |---|---|---|---|---|
-| Simple dNBR threshold | 0.19 | 0.11 | 0.17 | 0.23 |
-| Random Forest (per pixel) | 0.29 | 0.17 | 0.24 | 0.36 |
-| **U-Net** | **0.48** | 0.31 | 0.48 | 0.47 |
+| Simple dNBR threshold | 0.03 | 0.01 | 0.02 | 0.09 |
+| Random Forest (per pixel) | 0.05 | 0.03 | 0.03 | 0.14 |
+| **U-Net** | **0.15** | 0.08 | 0.14 | 0.16 |
 
-![U-Net example, August 2022](outputs/unet_examples.png)
-
-- The U-Net is best in every test year, but 0.48 is well below the project's target Dice of 0.80.
-- It traces large burns well (Dice 0.63 in 2022) and struggles with small ones (0.13 in 2023, 0.16 in 2025), which are only a few 500 m pixels wide.
-- Limits: the test set has only 2,933 burned pixels, results come from one training run, and the labels (MCD64A1) are computed from the same kind of MODIS data as the inputs, so this measures how well the model learns that product rather than providing a fully independent validation. A Sentinel-2 burn-severity case study on one fire is planned as an independent check.
+- The U-Net beats both baselines in 2022 and 2023, but 0.15 is far below the project's target Dice of 0.80. Dice per test year: 0.24 (2022), 0.08 (2023), 0.02 (2025); 2024 (0.59) rests on only 4 km² of burn and means little.
+- Tunisian fires are small: the test years contain only 942 burned 500 m pixels in Tunisia, roughly 200 km² in total, which are a few pixels wide each. The first version of this evaluation also counted Algerian pixels, where fires are larger, and scored Dice 0.48. That number is not a Tunisian result and was removed.
+- Limits: very small test set, one training run, and labels (MCD64A1) computed from the same kind of MODIS data as the inputs, so this measures how well the model learns that product rather than providing a fully independent validation. 500 m pixels are too coarse for most Tunisian fires; finer imagery (Sentinel-2, 20 m) is the natural next step, and a Sentinel-2 burn-severity case study is planned as an independent check.
 
 ## Data cleaning
 
@@ -113,7 +122,7 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 **Phase 4: Burned-area segmentation**
 - [x] Prepare MCD64A1 burned-area labels (`src/fetch_mcd64a1.py`)
 - [x] PyTorch U-Net for burned-area segmentation (`src/train_unet.py`)
-- [x] Compare against Random Forest and dNBR baselines (Dice 0.48 vs 0.29 and 0.19; target 0.80 not reached)
+- [x] Compare against Random Forest and dNBR baselines (Tunisia-only Dice 0.15 vs 0.05 and 0.03; target 0.80 not reached)
 - [ ] Burn severity (NBR) case study on one recent fire
 
 **Phase 5: Write-up**
@@ -144,7 +153,6 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 │   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
 ├── data/                    # Downloaded data (not tracked by git)
 ├── outputs/                 # Generated charts and maps
-├── notebooks/               # Exploration notebooks
 ├── requirements.txt
 └── README.md
 ```
