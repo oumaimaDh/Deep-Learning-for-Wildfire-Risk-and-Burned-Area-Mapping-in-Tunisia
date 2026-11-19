@@ -2,7 +2,7 @@
 
 An independent research project analyzing NASA Earth observation data to characterize wildfire patterns in Tunisia, model fire risk, and automatically map burned areas with deep learning.
 
-**Status:** In progress. The live fire map, the historical VIIRS and MODIS analysis, the fire-risk models (weather, vegetation, spatial validation) and a first U-Net for burned-area mapping are done. A Sentinel-2 burn-severity case study and the final report are still to do. 🚧
+**Status:** In progress. The live fire map, the historical VIIRS and MODIS analysis, the fire-risk models (weather, vegetation, spatial validation) and a first U-Net for burned-area mapping are done. A Sentinel-2 burn-severity case study and a technical report ([REPORT.md](REPORT.md)) are done. Results are preliminary: the burned-area model is far below its target accuracy and small fires remain the main open problem. 🚧
 
 ## Headline results
 
@@ -69,7 +69,24 @@ A small PyTorch U-Net maps burned pixels from two MODIS MOD13A1 composites 32 da
 
 - The U-Net beats both baselines in 2022 and 2023, but 0.15 is far below the project's target Dice of 0.80. Dice per test year: 0.24 (2022), 0.08 (2023), 0.02 (2025); 2024 (0.59) rests on only 4 km² of burn and means little.
 - Tunisian fires are small: the test years contain only 942 burned 500 m pixels in Tunisia, roughly 200 km² in total, which are a few pixels wide each. The first version of this evaluation also counted Algerian pixels, where fires are larger, and scored Dice 0.48. That number is not a Tunisian result and was removed.
-- Limits: very small test set, one training run, and labels (MCD64A1) computed from the same kind of MODIS data as the inputs, so this measures how well the model learns that product rather than providing a fully independent validation. 500 m pixels are too coarse for most Tunisian fires; finer imagery (Sentinel-2, 20 m) is the natural next step, and a Sentinel-2 burn-severity case study is planned as an independent check.
+- Limits: very small test set, one training run, and labels (MCD64A1) computed from the same kind of MODIS data as the inputs, so this measures how well the model learns that product rather than providing a fully independent validation. 500 m pixels are too coarse for most Tunisian fires, so finer imagery (Sentinel-2, 20 m) is the natural next step. A Sentinel-2 case study on one fire is described below.
+
+### Sentinel-2 case study (independent check on one fire)
+
+The largest burn cluster inside Tunisia in 2022 (MODIS: 16 km², 24 to 28 July, near 36.02°N, 9.64°E) was re-mapped from Sentinel-2 images at 20 m, using dNBR = NBR before minus NBR after (images of 19 July and 13 August 2022, both with 0% cloud) and the USGS severity classes. Pixels with dNBR of 0.27 or more count as burned.
+
+| Source | Burned area | Dice against Sentinel-2 (at 500 m) |
+|---|---|---|
+| Sentinel-2 dNBR | 14.2 km² | reference |
+| MODIS MCD64A1 | 15.9 km² | 0.94 |
+| U-Net | 18.9 km² | 0.88 |
+
+Severity from Sentinel-2: 9.2 km² high, 2.9 km² moderate-high, 2.1 km² moderate-low, 1.4 km² low.
+
+![Sentinel-2 case study](outputs/case_study_dnbr.png)
+
+- This is one large, isolated fire that was chosen from the MODIS data, so it shows that the burned extents agree, not what MODIS or the U-Net miss elsewhere. It is the easy case: over all Tunisian test fires the U-Net Dice is only 0.15.
+- The U-Net figure combines the predictions of every image pair overlapping the fire dates, and it slightly overestimates the area.
 
 ## Data cleaning
 
@@ -124,10 +141,10 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 - [x] Prepare MCD64A1 burned-area labels (`src/fetch_mcd64a1.py`)
 - [x] PyTorch U-Net for burned-area segmentation (`src/train_unet.py`)
 - [x] Compare against Random Forest and dNBR baselines (Tunisia-only Dice 0.15 vs 0.05 and 0.03; target 0.80 not reached)
-- [ ] Burn severity (NBR) case study on one recent fire
+- [x] Burn severity (dNBR) case study on one fire with Sentinel-2 (`src/case_study_s2.py`)
 
 **Phase 5: Write-up**
-- [ ] Burned-area maps, technical report, demo
+- [x] Burned-area maps, technical report ([REPORT.md](REPORT.md)) and interactive maps
 
 ## Project structure
 
@@ -151,10 +168,13 @@ Result: VIIRS 57,879 raw detections reduced to 19,753; MODIS 7,488 reduced to 6,
 │   ├── fetch_terrain.py     # Downloads SRTM elevation and summarises it on a 1 km grid
 │   ├── train_risk_v2.py     # Risk model with vegetation features and spatial cross-validation
 │   ├── train_unet.py        # U-Net burned-area segmentation vs Random Forest and dNBR
+│   ├── burned_area_by_year.py # Burned area per year in Tunisia vs VIIRS counts
+│   ├── case_study_s2.py     # Sentinel-2 dNBR case study on one fire
 │   └── check_hotspots.py    # Lists the most-repeated detection cells (fixed-source check)
 ├── data/                    # Downloaded data (not tracked by git)
 ├── outputs/                 # Generated charts and maps
 ├── requirements.txt
+├── REPORT.md
 └── README.md
 ```
 
@@ -213,6 +233,8 @@ python src/fetch_mod13a1.py      # input images and vegetation features
 python src/fetch_terrain.py      # elevation, slope, aspect (about 60 MB)
 python src/train_risk_v2.py      # vegetation features and spatial cross-validation
 python src/train_unet.py         # about 25 minutes on a laptop CPU
+python src/burned_area_by_year.py # burned area per year vs VIIRS counts
+python src/case_study_s2.py      # Sentinel-2 case study (reads a small window from a public archive, no account)
 ```
 
 Notes:

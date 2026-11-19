@@ -1,0 +1,15 @@
+,value
+fire_start,2022-07-24
+fire_end,2022-07-28
+before_image,2022-07-19
+after_image,2022-08-13
+s2_burned_km2,14.246
+s2_low_km2,1.434
+s2_moderate_low_km2,2.083
+s2_moderate_high_km2,2.914
+s2_high_km2,9.249
+mcd64a1_km2_in_window,15.885
+s2_burned_km2_on_modis_pixels,14.811
+dice_mcd64a1_vs_s2,0.937
+unet_km2_in_window,18.89
+dice_unet_vs_s2,0.879
