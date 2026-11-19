@@ -19,9 +19,13 @@ import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from matplotlib.path import Path
 from sklearn.ensemble import RandomForestClassifier
 
+from fetch_mcd64a1 import crop_window, pixel_to_latlon
+
 BURN_DIR, VEG_DIR = "data/burned_area", "data/vegetation"
+GEOJSON = "data/tunisia_governorates.geojson"
 OUT_METRICS, OUT_YEARS = "outputs/unet_metrics.csv", "outputs/unet_metrics_by_year.csv"
 OUT_FIG, OUT_CURVE, OUT_MODEL = "outputs/unet_examples.png", "outputs/unet_training.png", "data/unet.pt"
 YEARS = range(2012, 2026)
@@ -87,6 +91,22 @@ H, W = samples[0]["y"].shape
 tr = [s for s in samples if s["year"] in TRAIN_Y]
 va = [s for s in samples if s["year"] in VAL_Y]
 te = [s for s in samples if s["year"] in TEST_Y]
+
+# The crop box also contains a strip of Algeria. Validation and test scores count Tunisian pixels only.
+if os.path.exists(GEOJSON):
+    import json
+    r0, r1, c0, c1 = crop_window()
+    plat, plon = pixel_to_latlon(*np.meshgrid(np.arange(r0, r1), np.arange(c0, c1), indexing="ij"))
+    pts = np.column_stack([plon.ravel(), plat.ravel()])
+    tun = np.zeros(len(pts), dtype=bool)
+    for ft in json.load(open(GEOJSON, encoding="utf-8"))["features"]:
+        g = ft["geometry"]
+        for part in ([g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]):
+            tun |= Path(np.asarray(part[0])[:, :2]).contains_points(pts)
+    tun = tun.reshape(H, W)
+    for s_ in va + te:
+        s_["valid"] = s_["valid"] & tun
+    print(f"Evaluation restricted to Tunisia ({tun.mean():.0%} of the crop box)")
 print(f"{len(samples)} image pairs of {H}x{W} pixels | train {len(tr)}, validation {len(va)}, test {len(te)}")
 for name, grp in (("train", tr), ("validation", va), ("test", te)):
     pos = sum(int((s["y"] & s["valid"]).sum()) for s in grp)
@@ -267,6 +287,10 @@ by_year = pd.DataFrame(by_year)
 by_year.round(3).to_csv(OUT_YEARS, index=False)
 print("\nDice per test year:")
 print(by_year.round(2).to_string(index=False))
+
+# predictions of the test pairs, used by src/case_study_s2.py
+np.savez_compressed("data/unet_predictions.npz", **{f"{sm['year']}_{sm['doy']}": (un_te[i] >= results["U-Net"][1]).astype(np.uint8)
+                                                    for i, sm in enumerate(te)})
 
 # ---- 4. Example figure: the test pair with the most burned area ---------------------------
 k = int(np.argmax([int((s["y"] & s["valid"]).sum()) for s in te]))

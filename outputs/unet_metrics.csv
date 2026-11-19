@@ -1,4 +1,4 @@
 model,Dice,IoU,precision,recall,threshold
-Simple dNBR threshold,0.192,0.106,0.165,0.231,0.48
-Random Forest (per pixel),0.287,0.167,0.239,0.358,0.99
-U-Net,0.478,0.314,0.483,0.473,0.95
+Simple dNBR threshold,0.025,0.013,0.015,0.092,0.42
+Random Forest (per pixel),0.053,0.027,0.033,0.137,0.98
+U-Net,0.152,0.082,0.142,0.163,0.35
